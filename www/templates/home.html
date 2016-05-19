@@ -1,0 +1,23 @@
+<ion-view title="{{year}} Season" id="page2">
+    <ion-content padding="true" class="has-header">
+
+        <h3>Ranking</h3>
+        <ion-list>
+            <ion-item ng-repeat="user in rankedUsers">
+              {{user.rank}}. {{user.name}} ${{user.score}}
+              <span class="item-note">-{{user.outFromFirst | currency:"$":0}}</span>
+            </ion-item>
+        </ion-list>
+
+        <div class="spacer" style="width: 300px; height: 18px;"></div>
+
+        <h3>Schedule</h3>
+        <ion-list>
+            <ion-item ng-repeat="event in events" ui-sref="tabsController.event">
+                {{event.date}} {{event.host}}
+                <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
+            </ion-item>
+        </ion-list>
+        <a ui-sref="tabsController.addEvent" id="home-add-event" class="button button-positive button-block button-outline">Add Event</a>
+    </ion-content>
+</ion-view>
