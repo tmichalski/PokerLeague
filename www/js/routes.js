@@ -23,8 +23,18 @@ angular.module('app.routes', ['ionicUIRouter'])
         url: '/home',
         views: {
           'homeTab': {
-            templateUrl: 'templates/home.html',
-            controller: 'cRB2016SeasonCtrl'
+            templateUrl: 'templates/season.html',
+            controller: 'seasonCtrl'
+          }
+        }
+      })
+
+      .state('tabsController.season', {
+        url: '/seasons/:id',
+        views: {
+          'seasonsTab': {
+            templateUrl: 'templates/season.html',
+            controller: 'seasonCtrl'
           }
         }
       })

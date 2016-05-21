@@ -35,8 +35,20 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('seasonsCtrl', function($scope) {
+.controller('seasonsCtrl', function($scope, $http) {
+  $http.get("http://localhost:8080/seasons")
+    .then(function(response) {
+      $scope.seasons = response.data;
+    });
+})
 
+.controller('seasonCtrl', function($scope, $stateParams, $http) {
+  var id = $stateParams.id;
+  if (!id) id = 'latest';
+  $http.get("http://localhost:8080/seasons/" + id)
+    .then(function(response) {
+      $scope.season = response.data;
+    });
 })
 
 .controller('profileCtrl', function($scope) {
@@ -49,4 +61,4 @@ angular.module('app.controllers', [])
 
 .controller('seasonAddCtrl', function($scope) {
 
-})
+});
