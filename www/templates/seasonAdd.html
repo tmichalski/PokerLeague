@@ -1,12 +1,13 @@
-<ion-view title="Season Add" id="page9" class=" ">
-    <ion-content padding="true" class="has-header">
-        <form id="seasonAdd-form5" class="list ">
-            <label class="item item-input " id="seasonAdd-input6">
-                <span class="input-label">Name</span>
-                <input type="text" placeholder="">
-            </label>
-            <ion-toggle toggle-class="toggle-positive" id="seasonAdd-toggle3" name="isActive" class=" ">Active</ion-toggle>
-        </form>
-        <a ui-sref="tabsController.seasons" id="seasonAdd-button6" class=" button button-positive  button-block button-outline ">Save</a>
-    </ion-content>
+<ion-view title="Season Add">
+  <ion-content padding="true" class="has-header">
+    <form class="list" ng-submit="addSeason()">
+      <label class="item item-select " id="addEvent-select1" name="season">
+        <span class="input-label">Season</span>
+        <select ng-model="season.year" ng-options="year for year in years"></select>
+      </label>
+      <ion-toggle ng-model="season.isActive" toggle-class="toggle-positive" name="isActive">Active</ion-toggle>
+      <button type="submit" class="button button-block button-positive button-outline">Save</button>
+    </form>
+
+  </ion-content>
 </ion-view>

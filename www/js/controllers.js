@@ -35,20 +35,13 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('seasonsCtrl', function($scope, $http) {
-  $http.get("http://localhost:8080/seasons")
-    .then(function(response) {
-      $scope.seasons = response.data;
-    });
+.controller('seasonsCtrl', function($scope, $http, Season) {
+  $scope.seasons = Season.query();
 })
 
-.controller('seasonCtrl', function($scope, $stateParams, $http) {
-  var id = $stateParams.id;
-  if (!id) id = 'latest';
-  $http.get("http://localhost:8080/seasons/" + id)
-    .then(function(response) {
-      $scope.season = response.data;
-    });
+.controller('seasonCtrl', function($scope, $stateParams, Season) {
+  var id = $stateParams.id || 'latest';
+  $scope.season = Season.get({id: id});
 })
 
 .controller('profileCtrl', function($scope) {
@@ -59,6 +52,42 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('seasonAddCtrl', function($scope) {
+.controller('seasonAddCtrl', function($scope, $state, $http, $moment, Season) {
+  $scope.season = new Season();
+  $scope.season.isActive = false;
+
+  var years = [];
+
+  // get all of the season years
+  $http.get("http://localhost:8081/seasons")
+    .then(function(response) {
+      var seasons = response.data;
+
+      // get the current year, add 1, then iterate over the last 10 years
+      var startingYear = $moment().year() + 1;
+      for (var i=0; i < 10; i++) {
+        var year = startingYear - i;
+
+        var seasonMatch = _.find(seasons, function(season) { return season.year == year });
+        if (!seasonMatch) {
+          years.push(year);
+        }
+      }
+    });
+
+  $scope.years = years;
+
+  $scope.addSeason = function() {
+
+      $scope.season.$save().then(function(response) {
+          var list = Season.query().$promise.then(function(seasons) {
+            console.log("SUCCESSFULLY SAVED season. Seasons="+ list.length);
+            $state.go('tab.seasons');
+          });
+        });
+
+
+    // reload the seasons page (should show the new season)
+  }
 
 });

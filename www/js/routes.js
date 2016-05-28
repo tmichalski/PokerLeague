@@ -2,24 +2,20 @@ angular.module('app.routes', ['ionicUIRouter'])
 
   .config(function ($stateProvider, $urlRouterProvider) {
 
-    // Ionic uses AngularUI Router which uses the concept of states
-    // Learn more here: https://github.com/angular-ui/ui-router
-    // Set up the various states which the app can be in.
-    // Each state's controller can be found in controllers.js
     $stateProvider
 
       // ************************
       // Tabs
       // ************************
-      .state('tabsController', {
-        templateUrl: 'templates/tabsController.html',
+      .state('tab', {
+        templateUrl: 'templates/tabs.html',
         abstract: true
       })
 
       // ************************
       // Home
       // ************************
-      .state('tabsController.home', {
+      .state('tab.home', {
         url: '/home',
         views: {
           'homeTab': {
@@ -29,8 +25,12 @@ angular.module('app.routes', ['ionicUIRouter'])
         }
       })
 
-      .state('tabsController.season', {
+      // ************************
+      // Season
+      // ************************
+      .state('tab.seasonView', {
         url: '/seasons/:id',
+        cache: false,
         views: {
           'seasonsTab': {
             templateUrl: 'templates/season.html',
@@ -39,11 +39,9 @@ angular.module('app.routes', ['ionicUIRouter'])
         }
       })
 
-      // ************************
-      // Season
-      // ************************
-      .state('tabsController.seasons', {
+      .state('tab.seasons', {
         url: '/seasons',
+        cache: false,
         views: {
           'seasonsTab': {
             templateUrl: 'templates/seasons.html',
@@ -52,7 +50,7 @@ angular.module('app.routes', ['ionicUIRouter'])
         }
       })
 
-      .state('tabsController.seasonAdd', {
+      .state('tab.seasonAdd', {
         url: '/seasons/add',
         views: {
           'seasonsTab': {
@@ -65,7 +63,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       // ************************
       // Events
       // ************************
-      .state('tabsController.event', {
+      .state('tab.event', {
         url: '/event',
         views: {
           'homeTab': {
@@ -75,7 +73,7 @@ angular.module('app.routes', ['ionicUIRouter'])
         }
       })
 
-      .state('tabsController.addEvent', {
+      .state('tab.addEvent', {
         url: '/event/add',
         views: {
           'homeTab': {
@@ -88,7 +86,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       // ************************
       // Profile
       // ************************
-      .state('tabsController.profile', {
+      .state('tab.profile', {
         url: '/profile',
         views: {
           'profileTab': {

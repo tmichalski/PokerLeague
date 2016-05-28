@@ -1,24 +1,28 @@
 <ion-view>
-    <ion-nav-title>{{season.year}} Poker League</ion-nav-title>
-    <ion-content padding="true" class="has-header">
+  <ion-nav-title>{{season.year}} Poker League</ion-nav-title>
+  <!-- ion-nav-buttons side="secondary">
+    <button class="button" ng-click="seasonEdit()">Edit</button>
+  </ion-nav-buttons -->
 
-        <h3>Ranking</h3>
-        <ion-list>
-            <ion-item ng-repeat="ranking in season.rankings">
-              {{ranking.rank}}. {{ranking.user.nickname}} {{ranking.winnings | currency:"$":0}}
-              <span class="item-note">-{{user.outFromFirst | currency:"$":0}}</span>
-            </ion-item>
-        </ion-list>
+  <ion-content padding="true" class="has-header">
+    <h3>Ranking</h3>
+    <ion-list>
+      <ion-item ng-repeat="ranking in season.rankings">
+        {{ranking.rank}}. {{ranking.user.nickname}} {{ranking.winnings | currency:"$":0}}
+        <span class="item-note">-{{user.outFromFirst | currency:"$":0}}</span>
+      </ion-item>
+    </ion-list>
 
-        <div class="spacer" style="width: 300px; height: 18px;"></div>
+    <div class="spacer" style="width: 300px; height: 18px;"></div>
 
-        <h3>Schedule</h3>
-        <ion-list>
-            <ion-item ng-repeat="event in season.events" ui-sref="tabsController.event">
-                {{event.eventDate | date:'shortDate'}} {{event.hostUser.nickname}}
-                <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
-            </ion-item>
-        </ion-list>
-        <a ui-sref="tabsController.addEvent" id="home-add-event" class="button button-positive button-block button-outline">Add Event</a>
-    </ion-content>
+    <h3>Schedule</h3>
+    <ion-list>
+      <ion-item ng-repeat="event in season.events" ui-sref="tabsController.event">
+        {{event.eventDate | date:'shortDate'}} {{event.hostUser.nickname}}
+        <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
+      </ion-item>
+    </ion-list>
+    <a ui-sref="tabsController.addEvent" id="home-add-event" class="button button-positive button-block button-outline">Add
+      Event</a>
+  </ion-content>
 </ion-view>
