@@ -4,6 +4,15 @@ angular.module('app.routes', ['ionicUIRouter'])
 
     $stateProvider
 
+    // ************************
+    // Home
+    // ************************
+      .state('login', {
+        url: '/login',
+          templateUrl: 'templates/login.html',
+          controller: 'loginController'
+      })
+
       // ************************
       // Tabs
       // ************************
@@ -20,7 +29,7 @@ angular.module('app.routes', ['ionicUIRouter'])
         views: {
           'homeTab': {
             templateUrl: 'templates/season.html',
-            controller: 'seasonCtrl'
+            controller: 'seasonViewController'
           }
         }
       })
@@ -28,17 +37,6 @@ angular.module('app.routes', ['ionicUIRouter'])
       // ************************
       // Season
       // ************************
-      .state('tab.seasonView', {
-        url: '/seasons/:id',
-        cache: false,
-        views: {
-          'seasonsTab': {
-            templateUrl: 'templates/season.html',
-            controller: 'seasonCtrl'
-          }
-        }
-      })
-
       .state('tab.seasons', {
         url: '/seasons',
         cache: false,
@@ -50,12 +48,33 @@ angular.module('app.routes', ['ionicUIRouter'])
         }
       })
 
+      .state('tab.seasonView', {
+        url: '/seasons/:id',
+        cache: false,
+        views: {
+          'seasonsTab': {
+            templateUrl: 'templates/season.html',
+            controller: 'seasonViewController'
+          }
+        }
+      })
+
       .state('tab.seasonAdd', {
         url: '/seasons/add',
         views: {
           'seasonsTab': {
-            templateUrl: 'templates/seasonAdd.html',
-            controller: 'seasonAddCtrl'
+            templateUrl: 'templates/seasonEdit.html',
+            controller: 'seasonEditCtrl'
+          }
+        }
+      })
+
+      .state('tab.seasonEdit', {
+        url: '/seasons/edit/:id',
+        views: {
+          'seasonsTab': {
+            templateUrl: 'templates/seasonEdit.html',
+            controller: 'seasonEditCtrl'
           }
         }
       })
