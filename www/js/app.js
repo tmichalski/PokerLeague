@@ -3,6 +3,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   .config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('authorizationInterceptor');
     $httpProvider.interceptors.push('unauthorizedInterceptor');
+    $httpProvider.interceptors.push('notRegisteredInterceptor');
   }])
 
   .run(['$rootScope', '$injector', '$ionicPlatform', function ($rootScope, $injector, $ionicPlatform) {

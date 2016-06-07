@@ -4,13 +4,22 @@ angular.module('app.routes', ['ionicUIRouter'])
 
     $stateProvider
 
-    // ************************
-    // Home
-    // ************************
+      // ************************
+      // Home
+      // ************************
       .state('login', {
         url: '/login',
-          templateUrl: 'templates/login.html',
-          controller: 'loginController'
+        templateUrl: 'templates/login.html',
+        controller: 'loginController'
+      })
+
+      // ************************
+      // Register League
+      // ************************
+      .state('register', {
+        url: '/register',
+        templateUrl: 'templates/register.html',
+        controller: 'registerController'
       })
 
       // ************************
@@ -26,6 +35,7 @@ angular.module('app.routes', ['ionicUIRouter'])
       // ************************
       .state('tab.home', {
         url: '/home',
+        cache: false,
         views: {
           'homeTab': {
             templateUrl: 'templates/season.html',

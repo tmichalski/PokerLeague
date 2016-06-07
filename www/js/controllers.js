@@ -10,7 +10,14 @@ angular.module('app.controllers', [])
         $http.post('http://localhost:8080/login', {facebookAccessToken: accessToken})
           .then(function (response) {
             $window.localStorage.authToken = response.data.authToken;
-            $state.go('tab.home');
+
+            var leagues = response.data.leagues;
+            if (leagues && leagues.length > 0) {
+              $state.go('tab.home');
+            } else {
+              $state.go('register');
+            }
+
           }, function (response) {
             console.log("An error occurred logging in.");
           });
@@ -19,6 +26,10 @@ angular.module('app.controllers', [])
         console.log("An error occurred connecting to facebook API.", error);
       })
     }
+  })
+
+  .controller('registerController', function($scope) {
+
   })
 
   .controller('cRB2016SeasonCtrl', function ($scope) {
@@ -60,14 +71,12 @@ angular.module('app.controllers', [])
     $scope.seasons = Season.query();
   })
 
-  .controller('seasonViewController', function ($scope, $stateParams, historyService, Season) {
+  .controller('seasonViewController', function ($scope, $stateParams, seasonService) {
     var id = $stateParams.id || 'latest';
-    $scope.season = Season.get({id: id});
-
-    historyService.removeBackFor(["tab.seasonEdit", "tab.seasonAdd"])
+    $scope.season = seasonService.getSeason(id);
   })
 
-  .controller('profileCtrl', function ($scope, $rootScope, $state) {
+  .controller('profileCtrl', function ($scope, $rootScope, $state, $window) {
     $scope.logout = function () {
       var msg = "Are you sure you want to log out of Poker League?";
       if (window.confirm(msg)) {
