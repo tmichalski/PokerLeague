@@ -1,12 +1,13 @@
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.interceptors', 'app.directives', 'angular-momentjs', 'ngResource'])
+(function () {
+  'use strict';
 
-  .config(['$httpProvider', function($httpProvider) {
-    $httpProvider.interceptors.push('authorizationInterceptor');
-    $httpProvider.interceptors.push('unauthorizedInterceptor');
-    $httpProvider.interceptors.push('notRegisteredInterceptor');
-  }])
+  angular
+    .module('app')
+    .run(bootstrap);
 
-  .run(['$rootScope', '$injector', '$ionicPlatform', function ($rootScope, $injector, $ionicPlatform) {
+  bootstrap.$inject = ['$rootScope', '$injector', '$ionicPlatform'];
+
+  function bootstrap($rootScope, $injector, $ionicPlatform) {
     $ionicPlatform.ready(function () {
 
       if (window.cordova.platformId == "browser") {
@@ -24,4 +25,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
         StatusBar.styleDefault();
       }
     });
-  }]);
+  }
+
+})();

@@ -52,8 +52,8 @@ angular.module('app.routes', ['ionicUIRouter'])
         cache: false,
         views: {
           'seasonsTab': {
-            templateUrl: 'templates/seasons.html',
-            controller: 'seasonsCtrl'
+            templateUrl: 'app/season/season-list.html',
+            controller: 'SeasonListCtrl as vm'
           }
         }
       })
