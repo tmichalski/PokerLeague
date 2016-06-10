@@ -6,9 +6,7 @@
       [
         'ionicUIRouter'
       ])
-    .config(Config);
-
-  Config.$inject = ['$stateProvider'];
+    .config(['$stateProvider', Config]);
 
   //////////////
 
