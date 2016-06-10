@@ -67,15 +67,6 @@ angular.module('app.controllers', [])
 
   })
 
-  .controller('seasonsCtrl', function ($scope, $http, Season) {
-    $scope.seasons = Season.query();
-  })
-
-  .controller('seasonViewController', function ($scope, $stateParams, seasonService) {
-    var id = $stateParams.id || 'latest';
-    $scope.season = seasonService.getSeason(id);
-  })
-
   .controller('profileCtrl', function ($scope, $rootScope, $state, $window) {
     $scope.logout = function () {
       var msg = "Are you sure you want to log out of Poker League?";
@@ -88,34 +79,4 @@ angular.module('app.controllers', [])
 
   .controller('addEventCtrl', function ($scope) {
 
-  })
-
-  .controller('seasonEditCtrl', function ($scope, $state, $stateParams, $ionicHistory, Season) {
-    var id = $stateParams.id;
-
-    if (id) {
-      $scope.season = Season.get({id: id});
-    } else {
-      $scope.season = new Season();
-      $scope.season.isActive = false;
-    }
-
-    $scope.saveSeason = function () {
-      $scope.season.$save()
-        .then(function () {
-          $state.go('tab.seasonView', {id: $scope.season.id});
-        });
-    };
-
-    $scope.deleteSeason = function () {
-      var msg = "Are you sure you want to delete the " + $scope.season.year + " season?\n\n"
-        + "WARNING! Deleting your season will also delete all events and information tied to a season. ";
-
-      if (window.confirm(msg)) {
-        $scope.season.$delete()
-          .then(function () {
-            $state.go('tab.seasonView', {id: $scope.season.id});
-          });
-      }
-    }
   });

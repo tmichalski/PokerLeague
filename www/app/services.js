@@ -1,17 +1,5 @@
 angular.module('app.services', [])
 
-  .factory('Season', function ($resource) {
-    return $resource('http://localhost:8080/seasons/:id', {id: '@id'});
-  })
-
-  .service('seasonService', function (historyService, Season) {
-    this.getSeason = function(id) {
-      var season = Season.get({id: id});
-      historyService.removeBackFor(["tab.seasonEdit", "tab.seasonAdd"]);
-      return season;
-    }
-  })
-
   .service('historyService', function ($ionicHistory) {
 
     /**

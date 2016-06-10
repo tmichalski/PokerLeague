@@ -2,8 +2,11 @@
   'use strict';
 
   angular
-    .module('app')
-    .factory(HistoryService);
+    .module('app.common',
+      [
+        'ionic'
+      ])
+    .factory('historyService', HistoryService);
 
   HistoryService.$inject = ['$ionicHistory'];
 

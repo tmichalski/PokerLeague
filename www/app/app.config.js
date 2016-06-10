@@ -5,12 +5,17 @@
     .module('app')
     .config(configure);
 
-  configure.$inject = ['$httpProvider'];
+  configure.$inject = ['$httpProvider', '$urlRouterProvider'];
 
-  function configure($httpProvider) {
+  function configure($httpProvider, $urlRouterProvider) {
+
+    // Interceptors
     $httpProvider.interceptors.push('authorizationInterceptor');
     $httpProvider.interceptors.push('unauthorizedInterceptor');
     $httpProvider.interceptors.push('notRegisteredInterceptor');
+
+    // Default Route
+    $urlRouterProvider.otherwise('/home')
   }
-  
+
 })();

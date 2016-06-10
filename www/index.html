@@ -6,6 +6,7 @@
   <title></title>
 
   <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
@@ -33,22 +34,27 @@
     }
   </style>
 
+  <!-- APP -->
   <script src="app/app.module.js"></script>
   <script src="app/app.config.js"></script>
+  <script src="app/app.interceptors.js"></script>
   <script src="app/app.bootstrap.js"></script>
+  <script src="app/app.routes.js"></script>
 
   <script src="app/controllers.js"></script>
-  <script src="app/routes.js"></script>
   <script src="app/services.js"></script>
   <script src="app/directives.js"></script>
-  <script src="app/interceptors.js"></script>
 
-  <script src="app/services/history.service.js"></script>
+  <!-- COMMON -->
+  <script src="app/common/history.service.js"></script>
 
+  <!-- SEASON -->
+  <script src="app/season/season.resource.js"></script>
+  <script src="app/season/season.routes.js"></script>
+  <script src="app/season/season.service.js"></script>
   <script src="app/season/season-list.controller.js"></script>
-
-
-  <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+  <script src="app/season/season-view.controller.js"></script>
+  <script src="app/season/season-edit.controller.js"></script>
 
 </head>
 <body ng-app="app" animation="slide-left-right-ios7">
