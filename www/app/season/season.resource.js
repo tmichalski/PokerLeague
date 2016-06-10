@@ -2,10 +2,7 @@
   'use strict';
 
   angular
-    .module('app.services',
-      [
-        'ngResource'
-      ])
+    .module('app.seasons')
     .factory('Season', Season);
 
   Season.$inject = ['$resource'];

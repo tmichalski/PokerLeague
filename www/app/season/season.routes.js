@@ -2,11 +2,10 @@
   'use strict';
 
   angular
-    .module('app.seasons',
-      [
-        'ionicUIRouter'
-      ])
-    .config(['$stateProvider', Config]);
+    .module('app.seasons')
+    .config(Config);
+
+  Config.$inject = ['$stateProvider'];
 
   //////////////
 

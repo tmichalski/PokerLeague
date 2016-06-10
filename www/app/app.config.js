@@ -10,8 +10,6 @@
   function configure($httpProvider, $urlRouterProvider) {
 
     // Interceptors
-    $httpProvider.interceptors.push('authorizationInterceptor');
-    $httpProvider.interceptors.push('unauthorizedInterceptor');
     $httpProvider.interceptors.push('notRegisteredInterceptor');
 
     // Default Route

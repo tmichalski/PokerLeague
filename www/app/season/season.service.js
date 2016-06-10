@@ -2,11 +2,7 @@
   'use strict';
 
   angular
-    .module('app.seasons',
-      [
-        'ngResource',
-        'app.common'
-      ])
+    .module('app.seasons')
     .factory('seasonService', SeasonService);
 
   SeasonService.$inject = ['historyService', 'Season'];

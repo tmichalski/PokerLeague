@@ -9,10 +9,10 @@
       // Modularize
       'app.controllers',
       'app.routes',
-      'app.services',
       'app.directives',
 
       // Features
+      'app.auth',
       'app.seasons' //,
       // 'app.league',
       // 'app.events',
