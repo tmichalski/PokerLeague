@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.seasons')
+    .module('app.season')
     .controller('SeasonEditCtrl', SeasonEditCtrl);
 
   SeasonEditCtrl.$inject = ['$state', '$stateParams', 'Season'];

@@ -6,17 +6,11 @@
     [
       'app.core',
 
-      // Modularize
-      'app.controllers',
-      'app.routes',
-      'app.directives',
-
       // Features
       'app.auth',
-      'app.seasons' //,
-      // 'app.league',
-      // 'app.events',
-      // 'app.profile'
+      'app.profile',
+      'app.league',
+      'app.season'
     ]);
 
 
@@ -24,9 +18,9 @@
     .module('app.core',
     [
       'ionic',
+      'ionicUIRouter',
       'ngResource',
-      'app.common',
-      'app.interceptors'
+      'app.common'
     ]);
 
 })();

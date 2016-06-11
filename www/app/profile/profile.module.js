@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.season',
+    .module('app.profile',
       [
         'app.core'
       ]);

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.seasons')
+    .module('app.season')
     .config(Config);
 
   Config.$inject = ['$stateProvider'];

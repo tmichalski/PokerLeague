@@ -37,13 +37,8 @@
   <!-- APP -->
   <script src="app/app.module.js"></script>
   <script src="app/app.config.js"></script>
-  <script src="app/app.bootstrap.js"></script>
   <script src="app/app.routes.js"></script>
-
-  <!-- REFACTOR -->
-  <script src="app/app.interceptors.js"></script>
-  <script src="app/controllers.js"></script>
-  <script src="app/directives.js"></script>
+  <script src="app/app.bootstrap.js"></script>
 
   <!-- COMMON -->
   <script src="app/common/history.service.js"></script>
@@ -51,13 +46,27 @@
   <!-- AUTH -->
   <script src="app/auth/auth.module.js"></script>
   <script src="app/auth/auth.config.js"></script>
-  <script src="app/auth/authorization.interceptor.js"></script>
-  <script src="app/auth/unauthorized.interceptor.js"></script>
+  <script src="app/auth/auth.routes.js"></script>
+  <script src="app/auth/auth-request.interceptor.js"></script>
+  <script src="app/auth/auth-response-401.interceptor.js"></script>
+  <script src="app/auth/auth-login.controller.js"></script>
+
+  <!-- PROFILE -->
+  <script src="app/profile/profile.module.js"></script>
+  <script src="app/profile/profile.routes.js"></script>
+  <script src="app/profile/profile-view.controller.js"></script>
+
+  <!-- LEAGUE -->
+  <script src="app/league/league.module.js"></script>
+  <script src="app/league/league.config.js"></script>
+  <script src="app/league/league.routes.js"></script>
+  <script src="app/league/league-registration.interceptor.js"></script>
+  <script src="app/league/league-register.controller.js"></script>
 
   <!-- SEASON -->
   <script src="app/season/season.module.js"></script>
-  <script src="app/season/season.resource.js"></script>
   <script src="app/season/season.routes.js"></script>
+  <script src="app/season/season.resource.js"></script>
   <script src="app/season/season.service.js"></script>
   <script src="app/season/season-list.controller.js"></script>
   <script src="app/season/season-view.controller.js"></script>

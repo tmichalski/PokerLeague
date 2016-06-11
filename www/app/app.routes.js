@@ -2,91 +2,55 @@
   'use strict';
 
   angular
-    .module('app.routes',
-      [
-        'ionicUIRouter'
-      ])
+    .module('app')
+    .config(Config);
 
-    .config(function ($stateProvider) {
+  Config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-      $stateProvider
+  function Config($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+
+      .state('tab', {
+        templateUrl: 'templates/tabs.html',
+        abstract: true
+      })
+
+      .state('tab.home', {
+        url: '/home',
+        cache: false,
+        views: {
+          'homeTab': {
+            templateUrl: 'app/season/season-view.html',
+            controller: 'SeasonViewCtrl as vm'
+          }
+        }
+      })
 
       // ************************
-      // Home
+      // Events
       // ************************
-        .state('login', {
-          url: '/login',
-          templateUrl: 'templates/login.html',
-          controller: 'loginController'
-        })
-
-        // ************************
-        // Register League
-        // ************************
-        .state('register', {
-          url: '/register',
-          templateUrl: 'templates/register.html',
-          controller: 'registerController'
-        })
-
-        // ************************
-        // Tabs
-        // ************************
-        .state('tab', {
-          templateUrl: 'templates/tabs.html',
-          abstract: true
-        })
-
-        // ************************
-        // Home
-        // ************************
-        .state('tab.home', {
-          url: '/home',
-          cache: false,
-          views: {
-            'homeTab': {
-              templateUrl: 'app/season/season-view.html',
-              controller: 'SeasonViewCtrl as vm'
-            }
+      .state('tab.event', {
+        url: '/event',
+        views: {
+          'homeTab': {
+            templateUrl: 'templates/event.html',
+            controller: 'eventCtrl'
           }
-        })
+        }
+      })
 
-        // ************************
-        // Events
-        // ************************
-        .state('tab.event', {
-          url: '/event',
-          views: {
-            'homeTab': {
-              templateUrl: 'templates/event.html',
-              controller: 'eventCtrl'
-            }
+      .state('tab.addEvent', {
+        url: '/event/add',
+        views: {
+          'homeTab': {
+            templateUrl: 'templates/addEvent.html',
+            controller: 'addEventCtrl'
           }
-        })
+        }
+      });
 
-        .state('tab.addEvent', {
-          url: '/event/add',
-          views: {
-            'homeTab': {
-              templateUrl: 'templates/addEvent.html',
-              controller: 'addEventCtrl'
-            }
-          }
-        })
-
-        // ************************
-        // Profile
-        // ************************
-        .state('tab.profile', {
-          url: '/profile',
-          views: {
-            'profileTab': {
-              templateUrl: 'templates/profile.html',
-              controller: 'profileCtrl'
-            }
-          }
-        })
-
-    });
+    $urlRouterProvider.otherwise('/home')
+  }
 
 })();

@@ -3,17 +3,15 @@
 
   angular
     .module('app')
-    .config(configure);
+    .constant('appConfig', AppConfig());
 
-  configure.$inject = ['$httpProvider', '$urlRouterProvider'];
+  //////////////
 
-  function configure($httpProvider, $urlRouterProvider) {
-
-    // Interceptors
-    $httpProvider.interceptors.push('notRegisteredInterceptor');
-
-    // Default Route
-    $urlRouterProvider.otherwise('/home')
+  function AppConfig() {
+    return {
+      facebookAppId: '1602299076749398',
+      serverHostName: 'http://pokerleague.lssinc.com:8080'
+    }
   }
 
 })();

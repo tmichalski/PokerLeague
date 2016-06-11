@@ -2,15 +2,15 @@
   'use strict';
 
   angular
-    .module('app.seasons')
+    .module('app.season')
     .factory('Season', Season);
 
-  Season.$inject = ['$resource'];
+  Season.$inject = ['$resource', 'appConfig'];
 
   //////////////
 
-  function Season($resource) {
-    return $resource('http://localhost:8080/seasons/:id', {id: '@id'});
+  function Season($resource, appConfig) {
+    return $resource(appConfig.serverHostName + '/seasons/:id', {id: '@id'});
   }
 
 })();

@@ -3,13 +3,13 @@
 
   angular
     .module('app.auth')
-    .factory('AuthorizationInterceptor', AuthorizationInterceptor);
+    .factory('AuthRequestInterceptor', AuthRequestInterceptor);
 
-  AuthorizationInterceptor.$inject = ['$window'];
+  AuthRequestInterceptor.$inject = ['$window'];
 
   //////////////
 
-  function AuthorizationInterceptor($window) {
+  function AuthRequestInterceptor($window) {
     return {
       request: function(request) {
         request.headers['Authorization'] = $window.localStorage.authToken;

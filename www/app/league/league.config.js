@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.auth')
+    .module('app.league')
     .config(Config);
 
   Config.$inject = ['$httpProvider'];
@@ -10,8 +10,7 @@
   //////////////
 
   function Config($httpProvider) {
-    $httpProvider.interceptors.push('AuthRequestInterceptor');
-    $httpProvider.interceptors.push('AuthResponse401Interceptor');
+    $httpProvider.interceptors.push('NotRegisteredInterceptor');
   }
 
 })();

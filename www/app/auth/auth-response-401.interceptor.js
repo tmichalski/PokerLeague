@@ -3,13 +3,13 @@
 
   angular
     .module('app.auth')
-    .factory('UnauthorizedInterceptor', UnauthorizedInterceptor);
+    .factory('AuthResponse401Interceptor', AuthResponse401Interceptor);
 
-  UnauthorizedInterceptor.$inject = ['$q', '$window'];
+  AuthResponse401Interceptor.$inject = ['$q', '$window'];
 
   //////////////
 
-  function UnauthorizedInterceptor($q, $window) {
+  function AuthResponse401Interceptor($q, $window) {
     return {
       responseError: function (response) {
         if (response.status == 401) {
