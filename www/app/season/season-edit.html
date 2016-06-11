@@ -1,18 +1,18 @@
 <ion-view>
-  <ion-nav-title>Season {{season.id ? 'Edit' : 'Add'}}</ion-nav-title>
+  <ion-nav-title>Season {{vm.season.id ? 'Edit' : 'Add'}}</ion-nav-title>
   <ion-content padding="true" class="has-header">
-    <form class="list" ng-submit="saveSeason()">
+    <form class="list" ng-submit="vm.saveSeason()">
       <label class="item item-input" name="year">
         <span class="input-label">Year</span>
-        <input type="text" ng-model="season.year" maxlength="4">
+        <input type="text" ng-model="vm.season.year" maxlength="4">
       </label>
-      <ion-toggle ng-model="season.isActive" toggle-class="toggle-positive" name="isActive">Active</ion-toggle>
+      <ion-toggle ng-model="vm.season.isActive" toggle-class="toggle-positive" name="isActive">Active</ion-toggle>
       <button type="submit" class="button button-block button-positive button-outline">Save</button>
     </form>
 
-    <div id="delete-season-container" ng-if="season.id">
+    <div id="delete-season-container" ng-if="vm.season.id">
       <div class="spacer" style="width: 300px; height: 51px;"></div>
-      <button ng-click="deleteSeason()" class="button button-assertive button-block">Delete Season</button>
+      <button ng-click="vm.deleteSeason()" class="button button-assertive button-block">Delete Season</button>
       <p id="cloudTabDefaultPage-markdown2" style="color:#000000;" class=" ">
         <strong>WARNING!</strong> Deleting your season will also delete all events and information tied to a season.
       </p>

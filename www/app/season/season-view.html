@@ -1,14 +1,14 @@
 <ion-view>
   <ion-nav-title>{{vm.season.year}} {{vm.season.league.name}}</ion-nav-title>
   <ion-nav-buttons side="secondary">
-    <button class="button" ui-sref="tab.seasonEdit({id: season.id})">Edit</button>
+    <button class="button" ui-sref="tab.seasonEdit({id: vm.season.id})">Edit</button>
   </ion-nav-buttons>
 
   <ion-content padding="true" class="has-header">
     <h3>Ranking</h3>
     <ion-list>
       <ion-item ng-repeat="ranking in vm.season.rankings">
-        {{ranking.rank}}. {{ranking.user.nickname}} {{ranking.winnings | currency:"$":0}}
+        {{ranking.rank}}. {{ranking.user.name}} {{ranking.winnings | currency:"$":0}}
         <span class="item-note">-{{user.outFromFirst | currency:"$":0}}</span>
       </ion-item>
     </ion-list>
@@ -18,7 +18,7 @@
     <h3>Schedule</h3>
     <ion-list>
       <ion-item ng-repeat="event in vm.season.events" ui-sref="tabsController.event">
-        {{event.eventDate | date:'shortDate'}} {{event.hostUser.nickname}}
+        {{event.eventDate | date:'shortDate'}} {{event.hostUser.name}}
         <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
       </ion-item>
     </ion-list>

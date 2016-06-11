@@ -15,7 +15,7 @@
       .state('login', {
         url: '/login',
         templateUrl: 'app/auth/auth-login.html',
-        controller: 'AuthLoginCtrl'
+        controller: 'AuthLoginCtrl as vm'
       });
   }
 
