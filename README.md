@@ -29,10 +29,12 @@ Emulate Browser (for local development)
 
 Emulate iOS
 > ```ionic build ios```
+
 > ```ionic emulate ios```
 
 Emulate Android
 > ```ionic build android```
+
 > ```ionic emulate android```
 
 ### JetBrains WebStorm or IntelliJ
