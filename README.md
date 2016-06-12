@@ -8,6 +8,13 @@ This codebase follows the [John Papa's AngularJS 1 style guide](https://github.c
 
 ## Developer Setup
 ### Setup Env
+*Hostname Override*
+Update your OS hostname file to route "pokerleague.lssinc.com" to localhost.
+> ```sudo vi /etc/hosts```
+
+Add the hostname
+> ```127.0.0.1       pokerleague.lssinc.com```
+
 [Node Package Manager (npm)](https://www.npmjs.com)
 > ```$ git clone https://github.com/tmichalski/PokerLeague.git```
 
@@ -37,7 +44,25 @@ Emulate Android
 
 > ```$ ionic emulate android```
 
-### JetBrains WebStorm or IntelliJ
+### IDE: JetBrains WebStorm / IntelliJ IDEA
+* IntellJ IDE > Preferences > Plugins > Browse Repositories...  and install the following plugins:
+  * PhoneGap/Cordova
+  * AngularJS
+* Run > Edit Configurations
+  * Click the "+" sign to add a new configuration
+  * Choose "PhoneGap/Cordova" from the "+" drop-down list
+  * Enter the following options
+    * Name: Emulate Browser
+    * PhoneGap/Cordova executable: /usr/local/bin/ionic
+    * PhoneGap/Cordova working directory: <path to your project> (ie /Users/tim/Documents/workspace/PokerLeague)
+    * Command: emulate
+    * Platform: browser
+  * Click "Ok" to save
+  * Repeat this setup for each platform by changing the "Name" and "Platform" variables.
+* 
+
+
+
 
 
 
