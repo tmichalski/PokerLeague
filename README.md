@@ -9,33 +9,33 @@ This codebase follows the [John Papa's AngularJS 1 style guide](https://github.c
 ## Developer Setup
 ### Setup Env
 [Node Package Manager (npm)](https://www.npmjs.com)
-> ```git clone https://github.com/tmichalski/PokerLeague.git```
+> ```$ git clone https://github.com/tmichalski/PokerLeague.git```
 
 [Apache Cordova](https://cordova.apache.org) & [Ionic Framework](http://ionicframework.com/getting-started/)
-> ```npm install -g cordova ionic```
+> ```$ npm install -g cordova ionic```
 
 iOS Ionic/Cordova Platform (Mac OSX Only)
-> ```ionic platform add ios```
+> ```$ ionic platform add ios```
 
 Android Ionic/Cordova Platform
-> ```ionic platform add android```
+> ```$ ionic platform add android```
 
 Browser Ionic/Cordova Platform (required for local testing)
-> ```ionic platform add browser```
+> ```$ ionic platform add browser```
 
 ### Run App
 Emulate Browser (for local development)
-> ```ionic emulate browser```
+> ```$ ionic emulate browser```
 
 Emulate iOS
-> ```ionic build ios```
+> ```$ ionic build ios```
 
-> ```ionic emulate ios```
+> ```$ ionic emulate ios```
 
 Emulate Android
-> ```ionic build android```
+> ```$ ionic build android```
 
-> ```ionic emulate android```
+> ```$ ionic emulate android```
 
 ### JetBrains WebStorm or IntelliJ
 
