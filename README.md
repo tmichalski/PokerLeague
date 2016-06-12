@@ -9,10 +9,10 @@ This codebase follows the [John Papa's AngularJS 1 style guide](https://github.c
 ## Developer Setup
 ### Command Line
 [Node Package Manager (npm)](https://www.npmjs.com)
-```git clone https://github.com/tmichalski/PokerLeague.git```
+> ```git clone https://github.com/tmichalski/PokerLeague.git```
 
 [Apache Cordova](https://cordova.apache.org) & [Ionic Framework](http://ionicframework.com/getting-started/)
-```npm install -g cordova ionic```
+> ```npm install -g cordova ionic```
 
 ### JetBrains WebStorm or IntelliJ
 
