@@ -1,0 +1,18 @@
+<ion-view title="Join League">
+  <ion-content padding="true" class="has-header">
+    <p id="joinLeague-markdown6" style="color:#000000;">Request the "Access Code" from any member currently in the
+      league.</p>
+    <div class="spacer" style="width: 300px; height: 40px;"></div>
+    <form class="list" ng-submit="vm.join()">
+      <label class="item item-input">
+        <span class="input-label">Access Code</span>
+        <input ng-model="vm.accessCode" type="text">
+      </label>
+      <div ng-show="vm.accessCodeError" style="color: #f11">
+        Invalid access code. Fingers need a diet?
+      </div>
+      <div class="spacer" style="width: 300px; height: 40px;"></div>
+      <button type="submit" class="button button-positive button-block button-outline">Join League</button>
+    </form>
+  </ion-content>
+</ion-view>

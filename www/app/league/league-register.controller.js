@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.auth')
+    .module('app.league')
     .controller('LeagueRegisterCtrl', LeagueRegisterCtrl);
 
   LeagueRegisterCtrl.$inject = [];

@@ -13,7 +13,7 @@
     return {
       responseError: function (response) {
         if (response.status == 412) {
-          $window.location = "#/register";
+          $window.location = "#/league/register";
         }
         return $q.reject(response);
       }
