@@ -1,5 +1,8 @@
-# PokerLeague
+# Poker League
 A poker league management app useful for socially tracking seasons, rankings, events, etc.
+
+## PokerLeageAPI Companion App
+This project, PokerLeague, is the mobile app view. A companion API project that facilitates the web services & data storage for this mobile app can be found at https://github.com/tmichalski/PokerLeagueAPI
 
 ## Coding Standards
 This app is built on [Ionic Framework](http://ionicframework.com/getting-started/). Follow the CSS and other conventions of the Ionic Framework. 
