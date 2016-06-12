@@ -14,6 +14,15 @@ This codebase follows the [John Papa's AngularJS 1 style guide](https://github.c
 [Apache Cordova](https://cordova.apache.org) & [Ionic Framework](http://ionicframework.com/getting-started/)
 > ```npm install -g cordova ionic```
 
+iOS Ionic/Cordova Platform (Mac OSX Only)
+> ```ionic platform add ios```
+
+Android Ionic/Cordova Platform
+> ```ionic platform add android```
+
+Browser Ionic/Cordova Platform (required for local testing)
+> ```ionic platform add browser```
+
 ### JetBrains WebStorm or IntelliJ
 
 
