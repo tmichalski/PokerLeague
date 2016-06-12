@@ -28,8 +28,8 @@ Emulate Browser (for local development)
 > ```ionic emulate browser```
 
 Emulate iOS
-> ```ionic build ios
-ionic emulate ios```
+> ```ionic build ios```
+> ```ionic emulate ios```
 
 Emulate Android
 > ```ionic build android```
