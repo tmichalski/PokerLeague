@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Poker League by tmichalski</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Poker League</h1>
+      <h2 class="project-tagline">A poker league management app</h2>
+      <a href="https://github.com/tmichalski/PokerLeague" class="btn">View on GitHub</a>
+      <a href="https://github.com/tmichalski/PokerLeague/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/tmichalski/PokerLeague/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="pokerleague" class="anchor" href="#pokerleague" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PokerLeague</h1>
+
+<p>A poker league management app useful for socially tracking seasons, rankings, events, etc.</p>
+
+<h2>
+<a id="coding-standards" class="anchor" href="#coding-standards" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Coding Standards</h2>
+
+<p>This app is built on <a href="http://ionicframework.com/getting-started/">Ionic Framework</a>. Follow the CSS and other conventions of the Ionic Framework. </p>
+
+<p>This codebase follows the <a href="https://github.com/johnpapa/angular-styleguide/tree/master/a1">John Papa's AngularJS 1 style guide</a> as closely as possible. Please do the same. </p>
+
+<h2>
+<a id="developer-setup" class="anchor" href="#developer-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Developer Setup</h2>
+
+<h3>
+<a id="setup-env" class="anchor" href="#setup-env" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup Env</h3>
+
+<p>Update your OS hostname file to route "pokerleague.lssinc.com" to localhost.</p>
+
+<blockquote>
+<p><code>sudo vi /etc/hosts</code></p>
+</blockquote>
+
+<p>Add the following line to /etc/hosts</p>
+
+<blockquote>
+<p><code>127.0.0.1       pokerleague.lssinc.com</code></p>
+</blockquote>
+
+<p>Install <a href="https://www.npmjs.com">Node Package Manager (npm)</a></p>
+
+<p>Clone the PokerLeague project locally (assumes you already have <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git installed</a>)</p>
+
+<blockquote>
+<p><code>$ cd /my/workspace</code></p>
+
+<p><code>$ git clone https://github.com/tmichalski/PokerLeague.git</code></p>
+
+<p><code>$ cd /my/workspace/PokerLeague</code></p>
+</blockquote>
+
+<p><a href="https://cordova.apache.org">Apache Cordova</a> &amp; <a href="http://ionicframework.com/getting-started/">Ionic Framework</a></p>
+
+<blockquote>
+<p><code>$ npm install -g cordova ionic</code></p>
+</blockquote>
+
+<p>iOS Ionic/Cordova Platform (Mac OSX Only)</p>
+
+<blockquote>
+<p><code>$ ionic platform add ios</code></p>
+</blockquote>
+
+<p>Android Ionic/Cordova Platform</p>
+
+<blockquote>
+<p><code>$ ionic platform add android</code></p>
+</blockquote>
+
+<p>Browser Ionic/Cordova Platform (required for local testing)</p>
+
+<blockquote>
+<p><code>$ ionic platform add browser</code></p>
+</blockquote>
+
+<p>Install app dependencies</p>
+
+<blockquote>
+<p><code>$ bower install</code></p>
+</blockquote>
+
+<p>NOTE: Bower may ask you which version of AngularJS to use. If so, choose <em>angular#1.5.3</em> as of 6/12/2016.</p>
+
+<h3>
+<a id="run-app" class="anchor" href="#run-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run App</h3>
+
+<p>Be sure the PokerLeagueAPI app is running and listening on whatever hostname:port is configured in /www/app/app.config.js</p>
+
+<p>Emulate Browser (for local development)</p>
+
+<blockquote>
+<p><code>$ ionic emulate browser</code></p>
+</blockquote>
+
+<p>Emulate iOS</p>
+
+<blockquote>
+<p><code>$ ionic build ios</code></p>
+
+<p><code>$ ionic emulate ios</code></p>
+</blockquote>
+
+<p>Emulate Android</p>
+
+<blockquote>
+<p><code>$ ionic build android</code></p>
+
+<p><code>$ ionic emulate android</code></p>
+</blockquote>
+
+<h2>
+<a id="app-config" class="anchor" href="#app-config" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>App Config</h2>
+
+<ul>
+<li>Application config params are stored in <em>/www/app/app.config.js</em>
+</li>
+<li>serverHostName: Sets the web services hostname and port. Default is <em><a href="http://pokerleague.lssinc.com:8080">http://pokerleague.lssinc.com:8080</a></em>
+</li>
+</ul>
+
+<h3>
+<a id="ide-jetbrains-webstorm--intellij-idea" class="anchor" href="#ide-jetbrains-webstorm--intellij-idea" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IDE: JetBrains WebStorm / IntelliJ IDEA</h3>
+
+<ul>
+<li>IntellJ IDE &gt; Preferences &gt; Plugins &gt; Browse Repositories...  and install the following plugins:
+
+<ul>
+<li>PhoneGap/Cordova</li>
+<li>AngularJS</li>
+</ul>
+</li>
+<li>Run &gt; Edit Configurations
+
+<ul>
+<li>Click the "+" sign to add a new configuration</li>
+<li>Choose "PhoneGap/Cordova" from the "+" drop-down list</li>
+<li>Enter the following options
+
+<ul>
+<li>Name: Emulate Browser</li>
+<li>PhoneGap/Cordova executable: /usr/local/bin/ionic</li>
+<li>PhoneGap/Cordova working directory:  (ie /Users/tim/Documents/workspace/PokerLeague)</li>
+<li>Command: emulate</li>
+<li>Platform: browser</li>
+</ul>
+</li>
+<li>Click "Ok" to save</li>
+<li>Repeat this setup for each platform by changing the "Name" and "Platform" variables.</li>
+</ul>
+</li>
+<li>In the "Run" drop-down list in the main toolbar, select your run option and click the green "Play" button to launch the app. 
+
+<ul>
+<li>Be sure the PokerLeagueAPI app is running and listening on whatever hostname:port is configured in <em>/www/app/app.config.js</em>
+</li>
+</ul>
+</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/tmichalski/PokerLeague">Poker League</a> is maintained by <a href="https://github.com/tmichalski">tmichalski</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
