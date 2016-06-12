@@ -73,7 +73,7 @@ Emulate Android
   * Click "Ok" to save
   * Repeat this setup for each platform by changing the "Name" and "Platform" variables.
 * In the "Run" drop-down list in the main toolbar, select your run option and click the green "Play" button to launch the app. 
-  * Be sure the PokerLeagueAPI app is running and listening 
+  * Be sure the PokerLeagueAPI app is running and listening on whatever hostname:port is configured in */www/app/app.config.js*
 
 
 
