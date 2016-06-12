@@ -32,8 +32,8 @@ Emulate iOS
 ionic emulate ios```
 
 Emulate Android
-> ```ionic build android
-ionic emulate android```
+> ```ionic build android```
+> ```ionic emulate android```
 
 ### JetBrains WebStorm or IntelliJ
 
