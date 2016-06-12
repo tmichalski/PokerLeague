@@ -8,7 +8,7 @@ This codebase follows the [John Papa's AngularJS 1 style guide](https://github.c
 
 ## Developer Setup
 ### Setup Env
-*Hostname Override*
+
 Update your OS hostname file to route "pokerleague.lssinc.com" to localhost.
 > ```sudo vi /etc/hosts```
 
