@@ -7,7 +7,7 @@ This app is built on [Ionic Framework](http://ionicframework.com/getting-started
 This codebase follows the [John Papa's AngularJS 1 style guide](https://github.com/johnpapa/angular-styleguide/tree/master/a1) as closely as possible. Please do the same. 
 
 ## Developer Setup
-### Command Line
+### Setup Env
 [Node Package Manager (npm)](https://www.npmjs.com)
 > ```git clone https://github.com/tmichalski/PokerLeague.git```
 
