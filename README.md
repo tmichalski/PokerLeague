@@ -53,6 +53,10 @@ Emulate Android
 
 > ```$ ionic emulate android```
 
+## Application Configuration
+* Application config params are stored in */www/app/app.config.js*
+* serverHostName: Sets the web services hostname and port. Default is *http://pokerleague.lssinc.com:8080*
+
 ### IDE: JetBrains WebStorm / IntelliJ IDEA
 * IntellJ IDE > Preferences > Plugins > Browse Repositories...  and install the following plugins:
   * PhoneGap/Cordova
@@ -70,10 +74,6 @@ Emulate Android
   * Repeat this setup for each platform by changing the "Name" and "Platform" variables.
 * In the "Run" drop-down list in the main toolbar, select your run option and click the green "Play" button to launch the app. 
   * Be sure the PokerLeagueAPI app is running and listening 
-
-## Application Configuration
-* Application config params are stored in */www/app/app.config.js*
-* serverHostName: Sets the web services hostname and port. Default is *http://pokerleague.lssinc.com:8080*
 
 
 
