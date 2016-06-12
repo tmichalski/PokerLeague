@@ -39,6 +39,8 @@ Browser Ionic/Cordova Platform (required for local testing)
 Install app dependencies
 > ```$ bower install```
 
+NOTE: Bower may ask you which version of AngularJS to use. If so, choose *angular#1.5.3* as of 6/12/2016.
+
 ### Run App
 Be sure the PokerLeagueAPI app is running and listening on whatever hostname:port is configured in /www/app/app.config.js
 
