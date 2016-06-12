@@ -23,6 +23,18 @@ Android Ionic/Cordova Platform
 Browser Ionic/Cordova Platform (required for local testing)
 > ```ionic platform add browser```
 
+### Run App
+Emulate Browser (for local development)
+> ```ionic emulate browser```
+
+Emulate iOS
+> ```ionic build ios
+ionic emulate ios```
+
+Emulate Android
+> ```ionic build android
+ionic emulate android```
+
 ### JetBrains WebStorm or IntelliJ
 
 
