@@ -28,7 +28,7 @@
             if (leagues && leagues.length > 0) {
               $state.go('tab.home');
             } else {
-              $state.go('register');
+              $state.go('leagueRegister');
             }
 
           }, function (response) {
