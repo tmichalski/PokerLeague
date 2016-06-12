@@ -12,11 +12,17 @@ This codebase follows the [John Papa's AngularJS 1 style guide](https://github.c
 Update your OS hostname file to route "pokerleague.lssinc.com" to localhost.
 > ```sudo vi /etc/hosts```
 
-Add the hostname
+Add the following line to /etc/hosts
 > ```127.0.0.1       pokerleague.lssinc.com```
 
-[Node Package Manager (npm)](https://www.npmjs.com)
+Install [Node Package Manager (npm)](https://www.npmjs.com)
+
+Clone the PokerLeague project locally (assumes you already have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+> ```$ cd /my/workspace```
+
 > ```$ git clone https://github.com/tmichalski/PokerLeague.git```
+
+> ```$ cd /my/workspace/PokerLeague```
 
 [Apache Cordova](https://cordova.apache.org) & [Ionic Framework](http://ionicframework.com/getting-started/)
 > ```$ npm install -g cordova ionic```
@@ -29,6 +35,9 @@ Android Ionic/Cordova Platform
 
 Browser Ionic/Cordova Platform (required for local testing)
 > ```$ ionic platform add browser```
+
+Install app dependencies
+> ```$ bower install```
 
 ### Run App
 Emulate Browser (for local development)
@@ -59,9 +68,12 @@ Emulate Android
     * Platform: browser
   * Click "Ok" to save
   * Repeat this setup for each platform by changing the "Name" and "Platform" variables.
-* 
+* In the "Run" drop-down list in the main toolbar, select your run option and click the green "Play" button to launch the app. 
+  * Be sure the PokerLeagueAPI app is running and listening 
 
-
+## Application Configuration
+* Application config params are stored in */www/app/app.config.js*
+* serverHostName: Sets the web services hostname and port. Default is *http://pokerleague.lssinc.com:8080*
 
 
 
