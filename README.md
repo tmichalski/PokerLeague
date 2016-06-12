@@ -55,7 +55,7 @@ Emulate Android
 
 > ```$ ionic emulate android```
 
-## Application Configuration
+## App Config
 * Application config params are stored in */www/app/app.config.js*
 * serverHostName: Sets the web services hostname and port. Default is *http://pokerleague.lssinc.com:8080*
 
