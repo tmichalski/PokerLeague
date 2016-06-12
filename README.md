@@ -40,6 +40,8 @@ Install app dependencies
 > ```$ bower install```
 
 ### Run App
+Be sure the PokerLeagueAPI app is running and listening on whatever hostname:port is configured in /www/app/app.config.js
+
 Emulate Browser (for local development)
 > ```$ ionic emulate browser```
 
