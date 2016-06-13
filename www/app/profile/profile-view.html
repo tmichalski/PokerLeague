@@ -9,5 +9,14 @@
       <div>
         <a ng-click="vm.logout()" class="button button-positive button-block button-outline">Log out of Poker League</a>
       </div>
+
+      <div id="delete-season-container">
+        <div class="spacer" style="width: 300px; height: 50px;"></div>
+        <button ng-click="vm.leaveLeague()" class="button button-assertive button-block">Leave League</button>
+        <p style="color:#000000;">
+          <strong>WARNING!</strong> Leaving this league will disconnect you from your league data.
+        </p>
+      </div>
+
     </ion-content>
 </ion-view>
