@@ -18,12 +18,12 @@
 
     <h3>Schedule</h3>
     <ion-list>
-      <ion-item ng-repeat="event in vm.season.events" ui-sref="tabsController.event">
+      <ion-item ng-repeat="event in vm.season.events" ui-sref="tab.event">
         {{event.eventDate | date:'shortDate'}} {{event.hostUser.name}}
         <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
       </ion-item>
     </ion-list>
-    <a ui-sref="tabsController.addEvent" id="home-add-event" class="button button-positive button-block button-outline">Add
+    <a ui-sref="tab.eventAdd" id="home-add-event" class="button button-positive button-block button-outline">Add
       Event</a>
   </ion-content>
 </ion-view>

@@ -10,7 +10,8 @@
       'app.auth',
       'app.profile',
       'app.league',
-      'app.season'
+      'app.season',
+      'app.event'
     ]);
 
 
