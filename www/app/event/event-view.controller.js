@@ -5,38 +5,30 @@
     .module('app.event')
     .controller('EventViewCtrl', EventViewCtrl);
 
-  EventViewCtrl.$inject = ['$state', '$window', 'Profile', 'leagueService'];
+  EventViewCtrl.$inject = ['$stateParams', 'eventService'];
 
   //////////////
 
-  function EventViewCtrl($state, $window, Profile, leagueService) {
+  function EventViewCtrl($stateParams, eventService) {
     var vm = this;
+    var eventId = $stateParams.id;
 
-    vm.profile = profile();
-    vm.logout = logout;
-    vm.leaveLeague = leaveLeague;
+    vm.event = getEvent();
+    vm.users = getEventUsers();
+    vm.activities = getEventActivities();
 
-    function profile() {
-      return Profile.get({id: 'current'});
+    function getEvent() {
+      return eventService.getEvent(eventId);
     }
 
-    function logout() {
-      var msg = "Are you sure you want to log out of Poker League?";
-      if ($window.confirm(msg)) {
-        $window.localStorage.authToken = null;
-        $state.go("login");
-      }
+    function getEventUsers() {
+      return eventService.getEventUsers(eventId)
     }
 
-    function leaveLeague() {
-      var msg = "Are you sure you want to leave the league?";
-      if ($window.confirm(msg)) {
-        leagueService.leaveLeague()
-          .then(function() {
-              $state.go("leagueRegister");
-          });
-      }
+    function getEventActivities() {
+      return eventService.getEventActivities(eventId)
     }
+
   }
 
 })();

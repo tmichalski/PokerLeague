@@ -10,7 +10,23 @@
   //////////////
 
   function Event($resource, appConfig) {
-    return $resource(appConfig.serverHostName + '/events/:id');
+    var url = appConfig.serverHostName + '/events/:id';
+    var paramDefaults = {};
+    var extendedActions = {
+      activities: {
+        url: appConfig.serverHostName + '/events/:id/activities',
+        method: 'GET',
+        isArray: true
+      },
+
+      users: {
+        url: appConfig.serverHostName + '/events/:id/users',
+        method: 'GET',
+        isArray: true
+      }
+    };
+
+    return $resource(url, paramDefaults, extendedActions);
   }
 
 })();

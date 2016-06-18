@@ -14,24 +14,25 @@
     $stateProvider
 
       .state('tab.event', {
-        url: '/event',
+        url: '/event/:id',
         views: {
           'homeTab': {
             templateUrl: 'app/event/event-view.html',
-            controller: 'EventViewCtrl'
+            controller: 'EventViewCtrl as vm'
           }
         }
       })
 
-      .state('tab.addEvent', {
-        url: '/event/add',
-        views: {
-          'homeTab': {
-            templateUrl: 'templates/event-edit.html',
-            controller: 'addEventCtrl'
-          }
-        }
-      });
+      // .state('tab.addEvent', {
+      //   url: '/event/add',
+      //   views: {
+      //     'homeTab': {
+      //       templateUrl: 'templates/event-edit.html',
+      //       controller: 'addEventCtrl'
+      //     }
+      //   }
+      // })
+      ;
   }
 
 
