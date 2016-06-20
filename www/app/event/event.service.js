@@ -12,7 +12,9 @@
     return {
       getEvent: getEvent,
       getEventUsers: getEventUsers,
-      getEventActivities: getEventActivities
+      getEventActivities: getEventActivities,
+      saveEventActivity: saveEventActivity,
+      deleteEventActivity: deleteEventActivity
     };
 
     //////////////
@@ -29,6 +31,14 @@
 
     function getEventActivities(id) {
       return Event.activities({id: id});
+    }
+
+    function saveEventActivity(id, note) {
+      return Event.saveActivity({id: id, type: 1, note: note}).$promise;
+    }
+
+    function deleteEventActivity(id, activityId) {
+      return Event.deleteActivity({id: id, activityId: activityId}).$promise;
     }
 
   }

@@ -32,17 +32,17 @@
     <h3>Notes</h3>
     <form class="list">
       <label class="item item-input">
-        <span class="input-label">Say something....</span>
-        <input type="text" placeholder="">
+        <input ng-model="vm.noteText" type="text" placeholder="Say something...">
+        <button ng-click="vm.saveNote()" class="button button-icon icon ion-android-send"></button>
       </label>
-      <button class="button button-positive button-outline ">Send</button>
     </form>
 
-    <ion-list>
-      <ion-item ng-repeat="activity in vm.activities" class="item-avatar">
-        <h2>{{activity.createdByUser.name}} {{activity.createdDtm | date:'shortTime'}}</h2>
+    <div class="card" ng-repeat="activity in vm.activities" on-swipe-left="deleteActivity(activity.id)">
+      <div class="item item-text-wrap">
+        <!--<avatar user="activity.createdByUser" height="35" width="35"></avatar>-->
+        <h2>{{activity.createdDtm | date:'shortTime'}} {{activity.createdByUser.name}}</h2>
         <p style="white-space:normal;">{{activity.note}}</p>
-      </ion-item>
-    </ion-list>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

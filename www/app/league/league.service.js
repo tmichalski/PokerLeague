@@ -11,7 +11,9 @@
 
     return {
       joinLeague: joinLeague,
-      leaveLeague: leaveLeague
+      leaveLeague: leaveLeague,
+      createLeague: createLeague,
+      getLeague: getLeague
     };
 
     ////////////
@@ -25,7 +27,7 @@
         .then(function (response) {
           return response.data.isSuccess;
         }, function (response) {
-          console.log("An error occurred while requesting to join a league.");
+          console.log("An error occurred while requesting to join a league.", response);
         });
     }
 
@@ -34,7 +36,29 @@
         .then(function (response) {
           return response.data.isSuccess;
         }, function (response) {
-          console.log("An error occurred while requesting to leave a league.");
+          console.log("An error occurred while requesting to leave a league.", response);
+        });
+    }
+
+    function createLeague(name, seasonYear) {
+      if (!name || !seasonYear) return false;
+
+      var data = {name: name, seasonYear: seasonYear};
+
+      return $http.post(appConfig.serverHostName + '/league/create', data)
+        .then(function(response) {
+          return response.data;
+        }, function (response) {
+          console.log("An error occurred while requesting to leave a league.", response);
+        });
+    }
+
+    function getLeague() {
+      return $http.get(appConfig.serverHostName + '/league')
+        .then(function(response) {
+          return response.data;
+        }, function (response) {
+          console.log("An error occurred while requesting to leave a league.", response);
         });
     }
   }

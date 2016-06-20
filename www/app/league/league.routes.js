@@ -24,6 +24,23 @@
         templateUrl: 'app/league/league-join.html',
         controller: 'LeagueJoinCtrl as vm'
       })
+
+      .state('leagueCreate', {
+        url: '/league/create',
+        templateUrl: 'app/league/league-create.html',
+        controller: 'LeagueCreateCtrl as vm'
+      })
+
+      .state('tab.invite', {
+        cache: false,
+        url: '/league/invite',
+        views: {
+          'inviteTab': {
+            templateUrl: 'app/league/league-invite.html',
+            controller: 'LeagueInviteCtrl as vm'
+          }
+        }
+      })
   }
 
 })();

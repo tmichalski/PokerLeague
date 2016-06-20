@@ -1,0 +1,15 @@
+<ion-view title="Create League">
+  <ion-content padding="true" class="has-header">
+    <form class="list" ng-submit="vm.create()">
+      <label class="item item-input">
+        <span class="input-label">Name</span>
+        <input type="text" ng-model="vm.name">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Season Year</span>
+        <input type="text" ng-model="vm.seasonYear">
+      </label>
+      <button type="submit" class="button button-positive button-block button-outline">Create League</button>
+    </form>
+  </ion-content>
+</ion-view>

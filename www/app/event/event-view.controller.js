@@ -16,6 +16,7 @@
     vm.event = getEvent();
     vm.users = getEventUsers();
     vm.activities = getEventActivities();
+    vm.saveNote = saveNote;
 
     function getEvent() {
       return eventService.getEvent(eventId);
@@ -29,6 +30,30 @@
       return eventService.getEventActivities(eventId)
     }
 
+    function deleteActivity(activityId) {
+      eventService.deleteActivity(activityId)
+        .then(function(response) {
+          if (response.error) {
+            alert("A problem occurred deleting the activity. Please try again.");
+          } else {
+            vm.activities = eventService.getEventActivities(eventId);
+          }
+        });
+    }
+
+    function saveNote() {
+      if (vm.noteText.length > 0) {
+        eventService.saveEventActivity(eventId, vm.noteText)
+          .then(function(response) {
+            if (response.error) {
+              alert("A problem occurred saving the note. Please try again.");
+            } else {
+              vm.noteText = "";
+              vm.activities = eventService.getEventActivities(eventId);
+            }
+          });
+      }
+    }
   }
 
 })();

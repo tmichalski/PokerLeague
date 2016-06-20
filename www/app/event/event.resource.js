@@ -11,12 +11,22 @@
 
   function Event($resource, appConfig) {
     var url = appConfig.serverHostName + '/events/:id';
-    var paramDefaults = {};
+    var paramDefaults = {id: '@id'};
     var extendedActions = {
       activities: {
         url: appConfig.serverHostName + '/events/:id/activities',
         method: 'GET',
         isArray: true
+      },
+
+      saveActivity: {
+        url: appConfig.serverHostName + '/events/:id/activities',
+        method: 'POST'
+      },
+
+      deleteActivity: {
+        url: appConfig.serverHostName + '/events/:id/activities/:activityId',
+        method: 'DELETE'
       },
 
       users: {
