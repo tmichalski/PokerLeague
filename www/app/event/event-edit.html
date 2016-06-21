@@ -1,22 +1,33 @@
-<ion-view title="Add Event" id="page8" class=" ">
-    <ion-content padding="true" class="has-header">
-        <form id="addEvent-form4" class="list ">
-            <label class="item item-select " id="addEvent-select2" name="host">
-                <span class="input-label">Host</span>
-                <select>
-                    <option>Mac</option>
-                    <option>Paul</option>
-                    <option>Schulz</option>
-                    <option>Derek</option>
-                    <option>Ward</option>
-                    <option>Hart</option>
-                </select>
-            </label>
-            <label class="item item-input " id="addEvent-input4" name="date">
-                <span class="input-label">Date</span>
-                <input type="date" placeholder="">
-            </label>
-            <a ui-sref="tabsController.cRB2016Season" id="addEvent-button7" class=" button button-positive  button-block button-outline ">Save</a>
-        </form>
-    </ion-content>
+<ion-view>
+  <ion-nav-title>Event {{vm.event.id ? 'Edit' : 'Add'}}</ion-nav-title>
+  <ion-content padding="true" class="has-header">
+    <form class="list" ng-submit="vm.saveEvent()">
+      <label class="item item-input" name="season">
+        <span class="input-label">Season</span>
+        <input type="text" ng-model="vm.event.season.year" readonly="readonly">
+      </label>
+
+      <label class="item item-input" name="name">
+        <span class="input-label">Name</span>
+        <input type="text" ng-model="vm.event.name">
+      </label>
+      <label class="item item-input" name="host">
+        <span class="input-label">Host</span>
+        <select ng-model="vm.event.hostUser" ng-options="user.name for user in vm.users track by user.id"></select>
+      </label>
+      <label class="item item-input" name="date">
+        <span class="input-label">Date</span>
+        <input type="datetime-local" ng-model="vm.event.eventDate">
+      </label>
+      <button type="submit" class="button button-block button-positive button-outline">Save</button>
+    </form>
+
+    <div ng-if="vm.event.id">
+      <div class="spacer" style="width: 300px; height: 51px;"></div>
+      <button ng-click="vm.deleteEvent()" class="button button-assertive button-block">Delete Event</button>
+      <p style="color:#000000;">
+        <strong>WARNING!</strong> Deleting your event will also delete all information tied to the event.
+      </p>
+    </div>
+  </ion-content>
 </ion-view>

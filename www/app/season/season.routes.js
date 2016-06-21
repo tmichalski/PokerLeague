@@ -46,7 +46,7 @@
       })
 
       .state('tab.seasonEdit', {
-        url: '/seasons/edit/:id',
+        url: '/seasons/:id/edit',
         views: {
           'seasonsTab': {
             templateUrl: 'app/season/season-edit.html',

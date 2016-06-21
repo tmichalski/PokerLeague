@@ -16,23 +16,32 @@
       .state('tab.event', {
         url: '/event/:id',
         views: {
-          'homeTab': {
+          'seasonsTab': {
             templateUrl: 'app/event/event-view.html',
             controller: 'EventViewCtrl as vm'
           }
         }
       })
 
-      // .state('tab.addEvent', {
-      //   url: '/event/add',
-      //   views: {
-      //     'homeTab': {
-      //       templateUrl: 'templates/event-edit.html',
-      //       controller: 'addEventCtrl'
-      //     }
-      //   }
-      // })
-      ;
+      .state('tab.eventAdd', {
+        url: '/event/add',
+        views: {
+          'seasonsTab': {
+            templateUrl: 'app/event/event-edit.html',
+            controller: 'EventEditCtrl as vm'
+          }
+        }
+      })
+
+      .state('tab.eventEdit', {
+        url: '/event/:id/edit',
+        views: {
+          'seasonsTab': {
+            templateUrl: 'app/event/event-edit.html',
+            controller: 'EventEditCtrl as vm'
+          }
+        }
+      });
   }
 
 

@@ -13,6 +13,15 @@
     var url = appConfig.serverHostName + '/events/:id';
     var paramDefaults = {id: '@id'};
     var extendedActions = {
+      get: {
+        method: 'GET',
+        transformResponse: function (response) {
+          var event = angular.fromJson(response);
+          event.eventDate = moment(event.eventDate).toDate();
+          return event;
+        }
+      },
+
       activities: {
         url: appConfig.serverHostName + '/events/:id/activities',
         method: 'GET',
