@@ -4,7 +4,7 @@
     <form class="list" ng-submit="vm.saveEvent()">
       <label class="item item-input" name="season">
         <span class="input-label">Season</span>
-        <input type="text" ng-model="vm.event.season.year" readonly="readonly">
+        <select ng-model="vm.event.season" ng-options="season.year for season in vm.seasons track by season.id"></select>
       </label>
 
       <label class="item item-input" name="name">

@@ -5,15 +5,15 @@
     .module('app.event')
     .controller('EventEditCtrl', EventEditCtrl);
 
-  EventEditCtrl.$inject = ['$state', '$stateParams', 'Event', 'Profile', 'eventService'];
+  EventEditCtrl.$inject = ['$state', '$stateParams', 'Event', 'Profile', 'Season', 'eventService'];
 
   //////////////
 
-  function EventEditCtrl($state, $stateParams, Event, Profile, eventService) {
+  function EventEditCtrl($state, $stateParams, Event, Profile, Season, eventService) {
     var vm = this;
-    vm.hostId = "1";
     vm.event = getEvent();
     vm.users = getUsers();
+    vm.seasons = getSeasons();
     vm.saveEvent = saveEvent;
     vm.deleteEvent = deleteEvent;
 
@@ -24,10 +24,15 @@
         event = Event.get({id: $stateParams.id});
       } else {
         event = new Event();
+        event.season = {id: $stateParams.seasonId};
         event.isActive = false;
       }
 
       return event;
+    }
+
+    function getSeasons() {
+      return Season.query();
     }
 
     function getUsers() {

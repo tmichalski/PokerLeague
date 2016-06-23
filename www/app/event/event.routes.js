@@ -25,7 +25,7 @@
       })
 
       .state('tab.eventAdd', {
-        url: '/event/add',
+        url: '/event/add/:seasonId',
         views: {
           'seasonsTab': {
             templateUrl: 'app/event/event-edit.html',

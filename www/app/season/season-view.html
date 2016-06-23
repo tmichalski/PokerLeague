@@ -23,6 +23,6 @@
         <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
       </ion-item>
     </ion-list>
-    <a ng-if="vm.showEditButton" ui-sref="tab.eventAdd" id="home-add-event" class="button button-positive button-block button-outline">Add Event</a>
+    <button ng-if="vm.showEditButton" ui-sref="tab.eventAdd({seasonId:vm.season.id})" id="home-add-event" class="button button-positive button-block button-outline">Add Event</button>
   </ion-content>
 </ion-view>
