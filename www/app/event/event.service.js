@@ -14,7 +14,8 @@
       getEventUsers: getEventUsers,
       getEventActivities: getEventActivities,
       saveEventActivity: saveEventActivity,
-      deleteEventActivity: deleteEventActivity
+      deleteEventActivity: deleteEventActivity,
+      saveEvent: saveEvent
     };
 
     //////////////
@@ -39,6 +40,17 @@
 
     function deleteEventActivity(id, activityId) {
       return Event.deleteActivity({id: id, activityId: activityId}).$promise;
+    }
+
+    function saveEvent(eventId, seasonId, name, hostUserId, eventDate) {
+      var event = new Event({
+        id: eventId,
+        seasonId: seasonId,
+        name: name,
+        hostUserId: hostUserId,
+        eventDate: moment(eventDate).format()
+      });
+      return event.$save();
     }
 
   }

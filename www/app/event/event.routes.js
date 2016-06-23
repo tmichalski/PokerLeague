@@ -15,6 +15,7 @@
 
       .state('tab.event', {
         url: '/event/:id',
+        cache: false,
         views: {
           'seasonsTab': {
             templateUrl: 'app/event/event-view.html',
