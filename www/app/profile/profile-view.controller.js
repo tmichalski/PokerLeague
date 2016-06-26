@@ -5,11 +5,11 @@
     .module('app.profile')
     .controller('ProfileViewCtrl', ProfileViewCtrl);
 
-  ProfileViewCtrl.$inject = ['$state', '$window', 'Profile', 'leagueService'];
+  ProfileViewCtrl.$inject = ['$state', '$window', '$ionicPopup', 'Profile', 'leagueService'];
 
   //////////////
 
-  function ProfileViewCtrl($state, $window, Profile, leagueService) {
+  function ProfileViewCtrl($state, $window, $ionicPopup, Profile, leagueService) {
     var vm = this;
 
     vm.profile = profile();
@@ -21,21 +21,33 @@
     }
 
     function logout() {
-      var msg = "Are you sure you want to log out of Poker League?";
-      if ($window.confirm(msg)) {
-        $window.localStorage.authToken = null;
-        $state.go("login");
-      }
+      var confirm = $ionicPopup.confirm({
+        title: "Leave League",
+        template: "Are you sure you want to log out of Poker League?"
+      });
+
+      confirm.then(function(res) {
+        if (res) {
+          $window.localStorage.authToken = null;
+          $state.go("login");
+        }
+      });
     }
 
     function leaveLeague() {
-      var msg = "Are you sure you want to leave the league?";
-      if ($window.confirm(msg)) {
-        leagueService.leaveLeague()
-          .then(function() {
+      var confirm = $ionicPopup.confirm({
+        title: "Leave League",
+        template: "Are you sure you want to leave the league?"
+      });
+
+      confirm.then(function(res) {
+        if (res) {
+          leagueService.leaveLeague()
+            .then(function() {
               $state.go("leagueRegister");
-          });
-      }
+            });
+        }
+      });
     }
   }
 

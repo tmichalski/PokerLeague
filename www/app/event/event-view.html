@@ -14,7 +14,7 @@
       </ion-item>
     </div>
 
-    <h3>Players</h3>
+    <h3>Buy-Ins</h3>
     <div class="list card">
       <div class="row" style="font-weight: bold">
         <div class="col">Rank</div>
@@ -35,10 +35,10 @@
     <div class="spacer" style="width: 300px; height: 18px;"></div>
 
     <h3>Notes</h3>
-    <form class="list">
+    <form class="list" ng-submit="vm.saveNote()">
       <label class="item item-input">
         <input ng-model="vm.noteText" type="text" placeholder="Say something...">
-        <button ng-click="vm.saveNote()" class="button button-icon icon ion-android-send"></button>
+        <button type="submit" class="button button-icon icon ion-android-send"></button>
       </label>
     </form>
 

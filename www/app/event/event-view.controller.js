@@ -5,11 +5,11 @@
     .module('app.event')
     .controller('EventViewCtrl', EventViewCtrl);
 
-  EventViewCtrl.$inject = ['$stateParams', 'eventService'];
+  EventViewCtrl.$inject = ['$stateParams', '$ionicPopup', 'eventService'];
 
   //////////////
 
-  function EventViewCtrl($stateParams, eventService) {
+  function EventViewCtrl($stateParams, $ionicPopup, eventService) {
     var vm = this;
     var eventId = $stateParams.id;
 
@@ -34,7 +34,7 @@
       eventService.deleteActivity(activityId)
         .then(function(response) {
           if (response.error) {
-            alert("A problem occurred deleting the activity. Please try again.");
+            $ionicPopup.alert({title:"Error", template:"A problem occurred deleting the activity. Please try again."});
           } else {
             vm.activities = eventService.getEventActivities(eventId);
           }
@@ -46,7 +46,7 @@
         eventService.saveEventActivity(eventId, vm.noteText)
           .then(function(response) {
             if (response.error) {
-              alert("A problem occurred saving the note. Please try again.");
+              $ionicPopup.alert({title:"Error", template:"A problem occurred saving the note. Please try again."});
             } else {
               vm.noteText = "";
               vm.activities = eventService.getEventActivities(eventId);
