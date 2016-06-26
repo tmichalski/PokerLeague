@@ -8,7 +8,7 @@
     .module('app.common')
     .directive('defaultNavBackButton', DefaultNavBackButton);
 
-  DefaultNavBackButton.$inject(['$ionicHistory', '$state', '$ionicConfig', '$ionicViewSwitcher', '$ionicPlatform']);
+  DefaultNavBackButton.$inject = ['$ionicHistory', '$state', '$ionicConfig', '$ionicViewSwitcher', '$ionicPlatform'];
 
   ///////////////
 
@@ -75,4 +75,4 @@
     }
   }
 
-});
+})();
