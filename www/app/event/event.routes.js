@@ -21,6 +21,9 @@
             templateUrl: 'app/event/event-view.html',
             controller: 'EventViewCtrl as vm'
           }
+        },
+        defaultBack: {
+          state: 'tab.seasons'
         }
       })
 

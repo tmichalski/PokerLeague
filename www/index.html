@@ -44,6 +44,7 @@
   <!-- COMMON -->
   <script src="app/common/common.module.js"></script>
   <script src="app/common/history.service.js"></script>
+  <script src="app/common/default-nav-back-button.directive.js"></script>
 
   <!-- AUTH -->
   <script src="app/auth/auth.module.js"></script>
@@ -92,7 +93,10 @@
 <div>
   <div>
     <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
+      <!--<ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>-->
+      <ion-nav-back-button default-nav-back-button ng-click="goBack()" class="button-icon icon ion-ios-arrow-back">
+        Back
+      </ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-view></ion-nav-view>
   </div>
