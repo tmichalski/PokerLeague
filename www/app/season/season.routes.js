@@ -32,6 +32,13 @@
             templateUrl: 'app/season/season-view.html',
             controller: 'SeasonViewCtrl as vm'
           }
+        },
+        back: {
+          state: 'tab.seasons',
+          nextViewOptions: {
+            disableBack: true,
+            historyRoot: true
+          }
         }
       })
 

@@ -44,7 +44,7 @@
   <!-- COMMON -->
   <script src="app/common/common.module.js"></script>
   <script src="app/common/history.service.js"></script>
-  <script src="app/common/default-nav-back-button.directive.js"></script>
+  <script src="app/common/force-nav-back-button.directive.js"></script>
 
   <!-- AUTH -->
   <script src="app/auth/auth.module.js"></script>
@@ -54,6 +54,16 @@
   <script src="app/auth/auth-response-401.interceptor.js"></script>
   <script src="app/auth/auth-login.controller.js"></script>
 
+  <!-- REGISTER -->
+  <script src="app/register/register.module.js"></script>
+  <script src="app/register/register.config.js"></script>
+  <script src="app/register/register.routes.js"></script>
+  <script src="app/register/register.service.js"></script>
+  <script src="app/register/register-check-registration.interceptor.js"></script>
+  <script src="app/register/register-home.controller.js"></script>
+  <script src="app/register/register-join.controller.js"></script>
+  <script src="app/register/register-create.controller.js"></script>
+
   <!-- PROFILE -->
   <script src="app/profile/profile.module.js"></script>
   <script src="app/profile/profile.routes.js"></script>
@@ -62,14 +72,9 @@
 
   <!-- LEAGUE -->
   <script src="app/league/league.module.js"></script>
-  <script src="app/league/league.config.js"></script>
   <script src="app/league/league.routes.js"></script>
   <script src="app/league/league.service.js"></script>
-  <script src="app/league/league-registration.interceptor.js"></script>
-  <script src="app/league/league-register.controller.js"></script>
-  <script src="app/league/league-join.controller.js"></script>
-  <script src="app/league/league-create.controller.js"></script>
-  <script src="app/league/league-invite.controller.js"></script>
+  <script src="app/league/league-home.controller.js"></script>
 
   <!-- SEASON -->
   <script src="app/season/season.module.js"></script>
@@ -93,8 +98,7 @@
 <div>
   <div>
     <ion-nav-bar class="bar-positive">
-      <!--<ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>-->
-      <ion-nav-back-button default-nav-back-button ng-click="goBack()" class="button-icon icon ion-ios-arrow-back">
+      <ion-nav-back-button force-nav-back-button ng-click="goBack()" class="button-icon icon ion-ios-arrow-back">
         Back
       </ion-nav-back-button>
     </ion-nav-bar>

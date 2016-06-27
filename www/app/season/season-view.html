@@ -18,7 +18,7 @@
 
     <h3>Schedule</h3>
     <ion-list>
-      <ion-item ng-repeat="event in vm.season.events" ui-sref="tab.event({id: event.id})">
+      <ion-item ng-repeat="event in vm.season.events" ui-sref="tab.event({id: event.id, seasonId: vm.season.id})">
         {{event.eventDate | date:'shortDate'}} {{event.hostUser.name}}
         <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
       </ion-item>

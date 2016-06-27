@@ -14,7 +14,7 @@
     $stateProvider
 
       .state('tab.event', {
-        url: '/event/:id',
+        url: '/seasons/:seasonId/event/:id',
         cache: false,
         views: {
           'seasonsTab': {
@@ -22,13 +22,18 @@
             controller: 'EventViewCtrl as vm'
           }
         },
-        defaultBack: {
-          state: 'tab.seasons'
+        back: {
+          state: 'tab.seasonView',
+          getStateParams: function(stateParams) {
+            return {
+              id: stateParams.seasonId
+            };
+          }
         }
       })
 
       .state('tab.eventAdd', {
-        url: '/event/add/:seasonId',
+        url: '/seasons/:seasonId/event/add',
         views: {
           'seasonsTab': {
             templateUrl: 'app/event/event-edit.html',
@@ -38,7 +43,7 @@
       })
 
       .state('tab.eventEdit', {
-        url: '/event/:id/edit',
+        url: '/seasons/:seasonId/event/:id/edit',
         views: {
           'seasonsTab': {
             templateUrl: 'app/event/event-edit.html',

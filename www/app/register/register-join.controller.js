@@ -2,22 +2,22 @@
   'use strict';
 
   angular
-    .module('app.league')
-    .controller('LeagueJoinCtrl', LeagueJoinCtrl);
+    .module('app.register')
+    .controller('RegisterJoinCtrl', RegisterJoinCtrl);
 
-  LeagueJoinCtrl.$inject = ['$state', 'leagueService'];
+  RegisterJoinCtrl.$inject = ['$state', 'registerService'];
 
   //////////////
 
-  function LeagueJoinCtrl($state, leagueService) {
+  function RegisterJoinCtrl($state, registerService) {
     var vm = this;
 
     vm.join = join;
 
     function join() {
       vm.accessCodeError = false;
-      leagueService
-        .joinLeague(vm.accessCode)
+      registerService
+        .join(vm.accessCode)
         .then(function (isSuccess) {
           if (isSuccess) {
             $state.go('tab.home');

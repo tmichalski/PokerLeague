@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.league')
+    .module('app.register')
     .config(Config);
 
   Config.$inject = ['$httpProvider'];
@@ -10,7 +10,7 @@
   //////////////
 
   function Config($httpProvider) {
-    $httpProvider.interceptors.push('NotRegisteredInterceptor');
+    $httpProvider.interceptors.push('CheckRegistrationInterceptor');
   }
 
 })();

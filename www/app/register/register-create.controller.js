@@ -2,24 +2,24 @@
   'use strict';
 
   angular
-    .module('app.league')
-    .controller('LeagueCreateCtrl', LeagueCreateCtrl);
+    .module('app.register')
+    .controller('RegisterCreateCtrl', RegisterCreateCtrl);
 
-  LeagueCreateCtrl.$inject = ['$state', 'leagueService'];
+  RegisterCreateCtrl.$inject = ['$state', 'registerService'];
 
   //////////////
 
-  function LeagueCreateCtrl($state, leagueService) {
+  function RegisterCreateCtrl($state, registerService) {
     var vm = this;
 
     vm.create = create;
 
     function create() {
-      leagueService
-        .createLeague(vm.name, vm.seasonYear)
+      registerService
+        .create(vm.name, vm.seasonYear)
         .then(function (response) {
           if (response.isSuccess) {
-            $state.go('tab.invite');
+            $state.go('tab.league');
           } else {
             alert("An error occurred: " + response.error);
           }
