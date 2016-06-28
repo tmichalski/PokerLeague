@@ -2,6 +2,9 @@
   'use strict';
 
   angular
-    .module('app.league', [ ]);
+    .module('app.league',
+      [
+        'app.core'
+      ]);
 
 })();

@@ -14,15 +14,74 @@
     $stateProvider
 
       .state('tab.league', {
-        cache: false,
         url: '/league',
+        cache: false,
         views: {
           'leagueTab': {
-            templateUrl: 'app/league/league-home.html',
-            controller: 'LeagueHomeCtrl as vm'
+            templateUrl: 'app/season/season-view.html',
+            controller: 'SeasonViewCtrl as vm'
           }
+        },
+        route: {
+          'tab.event': 'tab.leagueEventView',
+          'tab.eventAdd': 'tab.leagueEventAdd',
+          'tab.seasonEdit': 'tab.leagueSeasonEdit'
         }
       })
+
+      .state('tab.leagueSeasonEdit', {
+        url: '/league/:id/edit',
+        views: {
+          'leagueTab': {
+            templateUrl: 'app/season/season-edit.html',
+            controller: 'SeasonEditCtrl as vm'
+          }
+        },
+        route: {
+          'tab.seasonView': 'tab.league'
+        }
+      })
+
+      .state('tab.leagueEventView', {
+        url: '/league/:seasonId/event/:id',
+        cache: false,
+        views: {
+          'leagueTab': {
+            templateUrl: 'app/event/event-view.html',
+            controller: 'EventViewCtrl as vm'
+          }
+        },
+        route: {
+          'tab.eventEdit': 'tab.leagueEventEdit'
+        }
+      })
+
+      .state('tab.leagueEventAdd', {
+        url: '/league/:seasonId/event/add',
+        views: {
+          'leagueTab': {
+            templateUrl: 'app/event/event-edit.html',
+            controller: 'EventEditCtrl as vm'
+          }
+        },
+        route: {
+          'tab.event': 'tab.leagueEventView'
+        }
+      })
+
+      .state('tab.leagueEventEdit', {
+        url: '/league/:seasonId/event/:id/edit',
+        views: {
+          'leagueTab': {
+            templateUrl: 'app/event/event-edit.html',
+            controller: 'EventEditCtrl as vm'
+          }
+        },
+        route: {
+          'tab.event': 'tab.leagueEventView'
+        }
+      });
   }
+
 
 })();

@@ -5,11 +5,11 @@
     .module('app.event')
     .controller('EventViewCtrl', EventViewCtrl);
 
-  EventViewCtrl.$inject = ['$stateParams', '$ionicPopup', 'eventService'];
+  EventViewCtrl.$inject = ['$stateParams', '$ionicPopup', 'eventService', 'routeService'];
 
   //////////////
 
-  function EventViewCtrl($stateParams, $ionicPopup, eventService) {
+  function EventViewCtrl($stateParams, $ionicPopup, eventService, routeService) {
     var vm = this;
     var eventId = $stateParams.id;
 
@@ -17,6 +17,7 @@
     vm.users = getEventUsers();
     vm.activities = getEventActivities();
     vm.saveNote = saveNote;
+    vm.editEvent = editEvent;
 
     function getEvent() {
       return eventService.getEvent(eventId);
@@ -53,6 +54,10 @@
             }
           });
       }
+    }
+
+    function editEvent(params) {
+      routeService.go('tab.eventEdit', params);
     }
   }
 

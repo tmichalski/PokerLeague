@@ -1,6 +1,6 @@
 <ion-view title="Join League">
   <ion-content padding="true" class="has-header">
-    <p id="joinLeague-markdown6" style="color:#000000;">Request the "Access Code" from any member currently in the
+    <p style="color:#000000;">Request your "Access Code" from any member currently in the
       league.</p>
     <div class="spacer" style="width: 300px; height: 40px;"></div>
     <form class="list" ng-submit="vm.join()">
@@ -12,7 +12,8 @@
         Invalid access code. Fingers need a diet?
       </div>
       <div class="spacer" style="width: 300px; height: 40px;"></div>
-      <button type="submit" class="button button-positive button-block button-outline">Join League</button>
+      <button ng-if="vm.isUserLoggedIn" type="submit" class="button button-positive button-block button-outline">Join League</button>
+      <a ng-if="!vm.isUserLoggedIn" ng-click="vm.facebookLogin()" class="button button-positive button-block">Login with Facebook</a>
     </form>
   </ion-content>
 </ion-view>

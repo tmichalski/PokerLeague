@@ -12,6 +12,7 @@
       'app.profile',
       'app.league',
       'app.season',
+      'app.member',
       'app.event'
     ]);
 

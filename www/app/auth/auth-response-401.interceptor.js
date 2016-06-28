@@ -13,7 +13,8 @@
     return {
       responseError: function (response) {
         if (response.status == 401) {
-          $window.location = "#/login";
+          $window.localStorage.removeItem('authToken');
+          $window.location = "#/register";
         }
         return $q.reject(response);
       }

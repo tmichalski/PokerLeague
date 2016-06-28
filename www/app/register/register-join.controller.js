@@ -5,14 +5,19 @@
     .module('app.register')
     .controller('RegisterJoinCtrl', RegisterJoinCtrl);
 
-  RegisterJoinCtrl.$inject = ['$state', 'registerService'];
+  RegisterJoinCtrl.$inject = ['$state', '$window', 'registerService'];
 
   //////////////
 
-  function RegisterJoinCtrl($state, registerService) {
+  function RegisterJoinCtrl($state, $window, registerService) {
     var vm = this;
 
+    vm.isUserLoggedIn = isUserLoggedIn();
     vm.join = join;
+
+    function isUserLoggedIn() {
+      return !!$window.localStorage.getItem('authToken');
+    }
 
     function join() {
       vm.accessCodeError = false;

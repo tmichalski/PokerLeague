@@ -21,14 +21,6 @@
             templateUrl: 'app/event/event-view.html',
             controller: 'EventViewCtrl as vm'
           }
-        },
-        back: {
-          state: 'tab.seasonView',
-          getStateParams: function(stateParams) {
-            return {
-              id: stateParams.seasonId
-            };
-          }
         }
       })
 

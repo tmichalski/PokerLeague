@@ -45,12 +45,19 @@
       var data = {name: name, seasonYear: seasonYear};
 
       return $http.post(appConfig.serverHostName + '/league/create', data)
-        .then(function(response) {
+        .then(function (response) {
           return response.data;
         }, function (response) {
           console.log("An error occurred while requesting to leave a league.", response);
         });
     }
+
+    function facebookLogin() {
+      return $q(function(resolve, reject) {
+        facebookConnectPlugin.login(['email', 'public_profile'], resolve, reject);
+      });
+    }
+
   }
 
 })();

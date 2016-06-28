@@ -5,11 +5,11 @@
     .module('app.event')
     .controller('EventEditCtrl', EventEditCtrl);
 
-  EventEditCtrl.$inject = ['$state', '$stateParams', 'Event', 'Profile', 'Season', 'eventService'];
+  EventEditCtrl.$inject = ['$stateParams', 'Event', 'Profile', 'Season', 'eventService', 'routeService'];
 
   //////////////
 
-  function EventEditCtrl($state, $stateParams, Event, Profile, Season, eventService) {
+  function EventEditCtrl($stateParams, Event, Profile, Season, eventService, routeService) {
     var vm = this;
     vm.event = getEvent();
     vm.users = getUsers();
@@ -42,7 +42,7 @@
     function saveEvent() {
       eventService.saveEvent(vm.event.id, vm.event.season.id, vm.event.name, vm.event.hostUser.id, vm.event.eventDate)
         .then(function(event) {
-          $state.go('tab.event', {id: event.id});
+          routeService.go('tab.event', {id: event.id});
         });
     }
 
@@ -53,7 +53,7 @@
       if (window.confirm(msg)) {
         vm.event.$delete()
           .then(function () {
-            $state.go('tab.event', {id: vm.event.id});
+            routeService.go('tab.event', {id: vm.event.id});
           });
       }
     }
