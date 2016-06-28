@@ -8,6 +8,7 @@
 
       // Features
       'app.auth',
+      'app.register',
       'app.profile',
       'app.league',
       'app.season',
