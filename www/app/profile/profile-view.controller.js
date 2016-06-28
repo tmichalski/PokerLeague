@@ -28,8 +28,8 @@
 
       confirm.then(function(res) {
         if (res) {
-          $window.localStorage.authToken = null;
-          $state.go("login");
+          $window.localStorage.removeItem('authToken');
+          $state.go("register");
         }
       });
     }
@@ -44,7 +44,7 @@
         if (res) {
           leagueService.leaveLeague()
             .then(function() {
-              $state.go("leagueRegister");
+              $state.go("register");
             });
         }
       });

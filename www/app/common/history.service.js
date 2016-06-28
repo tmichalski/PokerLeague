@@ -5,7 +5,7 @@
     .module('app.common')
     .factory('historyService', HistoryService);
 
-  HistoryService.$inject = ['$ionicHistory'];
+  HistoryService.$inject = ['$ionicHistory', 'routeService'];
 
   /**
    * For certain situations like a add/edit page, the user shouldn't be able to
@@ -19,12 +19,11 @@
    *
    * @param stateNames - an array of strings that match history pages (aka State Names)
    */
-  function HistoryService($ionicHistory) {
+  function HistoryService($ionicHistory, routeService) {
 
-    var service = {
+    return {
       removeBackFor: removeBackFor
     };
-    return service;
 
     ////////////
 
@@ -34,13 +33,12 @@
       var historyBack = $ionicHistory.viewHistory().backView;
       var historyForward = $ionicHistory.viewHistory().forwardView;
 
-      //console.log($ionicHistory.viewHistory());
-      //console.log("Back: ", historyBack);
-
       if (historyForward == null && historyBack != null) {
         stateNames.forEach(function (stateName) {
-          if (stateName == historyBack.stateName) {
-            //console.log("Removing back view");
+
+          // Get current route name
+          var name = routeService.getRoute(stateName);
+          if (name == historyBack.stateName) {
             $ionicHistory.removeBackView();
             return;
           }

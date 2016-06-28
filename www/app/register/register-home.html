@@ -1,15 +1,20 @@
 <ion-view title="League Registration" hide-nav-bar="true">
   <ion-content padding="true"
-               style="background: url(img/register-background.jpg) no-repeat center;background-size:cover;"
+               style="background: url(img/login-background.jpg) no-repeat center;background-size:cover;"
                class="manual-ios-statusbar-padding">
     <div class="spacer" style="width: 300px; height: 50px;"></div>
     <div class="">
       <img src="img/logo.png" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
     </div>
-    <p id="login-markdown7" style="color:#FFFFFF;text-align:center;">Track Events. Rank Players. Trash Talk.</p>
+    <p style="color:#FFFFFF;text-align:center;">Track Events. Rank Players. Trash Talk.</p>
+
     <div class="spacer" style="width: 300px; height: 200px;"></div>
-    <a ui-sref="leagueJoin" class="button button-stable button-block">Join League</a>
+    <a ui-sref="registerJoin" class="button button-stable button-block">Join League</a>
+
     <div class="spacer" style="width: 300px; height: 23px;"></div>
-    <a ui-sref="leagueCreate" class="button button-stable button-block">Create League</a>
+    <a ui-sref="registerCreate" class="button button-stable button-block">Create League</a>
+
+    <div class="spacer" style="width: 300px; height: 23px;"></div>
+    <a ng-if="!vm.isUserLoggedIn" ng-click="vm.facebookLogin()" class="button button-positive button-block">Login with Facebook</a>
   </ion-content>
 </ion-view>

@@ -44,7 +44,7 @@
   <!-- COMMON -->
   <script src="app/common/common.module.js"></script>
   <script src="app/common/history.service.js"></script>
-  <script src="app/common/force-nav-back-button.directive.js"></script>
+  <script src="app/common/route.service.js"></script>
 
   <!-- AUTH -->
   <script src="app/auth/auth.module.js"></script>
@@ -73,8 +73,12 @@
   <!-- LEAGUE -->
   <script src="app/league/league.module.js"></script>
   <script src="app/league/league.routes.js"></script>
-  <script src="app/league/league.service.js"></script>
-  <script src="app/league/league-home.controller.js"></script>
+
+  <!-- MEMBER -->
+  <script src="app/member/member.module.js"></script>
+  <script src="app/member/member.routes.js"></script>
+  <script src="app/member/member.service.js"></script>
+  <script src="app/member/member-home.controller.js"></script>
 
   <!-- SEASON -->
   <script src="app/season/season.module.js"></script>
@@ -98,7 +102,7 @@
 <div>
   <div>
     <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button force-nav-back-button ng-click="goBack()" class="button-icon icon ion-ios-arrow-back">
+      <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">
         Back
       </ion-nav-back-button>
     </ion-nav-bar>

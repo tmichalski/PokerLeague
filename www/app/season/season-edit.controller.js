@@ -5,11 +5,11 @@
     .module('app.season')
     .controller('SeasonEditCtrl', SeasonEditCtrl);
 
-  SeasonEditCtrl.$inject = ['$state', '$stateParams', 'Season'];
+  SeasonEditCtrl.$inject = ['$stateParams', 'Season', 'routeService'];
 
   //////////////
 
-  function SeasonEditCtrl($state, $stateParams, Season) {
+  function SeasonEditCtrl($stateParams, Season, routeService) {
     var vm = this;
 
     vm.season = getSeason();
@@ -32,7 +32,7 @@
     function saveSeason() {
       vm.season.$save()
         .then(function () {
-          $state.go('tab.seasonView', {id: vm.season.id});
+          routeService.go("tab.seasonView", {id: vm.season.id});
         });
     }
 
@@ -43,7 +43,7 @@
       if (window.confirm(msg)) {
         vm.season.$delete()
           .then(function () {
-            $state.go('tab.seasonView', {id: vm.season.id});
+            routeService.go("tab.seasonView", {id: vm.season.id});
           });
       }
     }

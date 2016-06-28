@@ -22,7 +22,7 @@
         // call the login WS endpoint to get a perm user token.
         $http.post(appConfig.serverHostName + '/login', {facebookAccessToken: accessToken})
           .then(function (response) {
-            $window.localStorage.authToken = response.data.authToken;
+            $window.localStorage.setItem('authToken', response.data.authToken);
 
             var leagues = response.data.leagues;
             if (leagues && leagues.length > 0) {

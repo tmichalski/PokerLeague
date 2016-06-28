@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.league')
+    .module('app.member')
     .factory('leagueService', LeagueService);
 
   LeagueService.$inject = ['$http', 'appConfig'];

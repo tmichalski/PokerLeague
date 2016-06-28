@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.league')
+    .module('app.member')
     .controller('LeagueInviteCtrl', LeagueInviteCtrl);
 
   LeagueInviteCtrl.$inject = ['leagueService'];

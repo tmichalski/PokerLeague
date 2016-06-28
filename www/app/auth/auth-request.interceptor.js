@@ -12,7 +12,7 @@
   function AuthRequestInterceptor($window) {
     return {
       request: function(request) {
-        request.headers['Authorization'] = $window.localStorage.authToken;
+        request.headers['Authorization'] = $window.localStorage.getItem('authToken');
         return request;
       }
     }
