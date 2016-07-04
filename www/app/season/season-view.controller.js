@@ -5,22 +5,17 @@
     .module('app.season')
     .controller('SeasonViewCtrl', SeasonViewCtrl);
 
-  SeasonViewCtrl.$inject = ['$stateParams', '$location', 'seasonService', 'routeService'];
+  SeasonViewCtrl.$inject = ['$stateParams', 'seasonService', 'routeService'];
 
   //////////////
 
-  function SeasonViewCtrl($stateParams, $location, seasonService, routeService) {
+  function SeasonViewCtrl($stateParams, seasonService, routeService) {
     var vm = this;
 
-    vm.showEditButton = showEditButton();
     vm.season = getSeason();
     vm.viewEvent = viewEvent;
     vm.addEvent = addEvent;
     vm.seasonEdit = seasonEdit;
-
-    function showEditButton() {
-      return $location.path() != '/home';
-    }
 
     function getSeason() {
       var id = $stateParams.id || 'latest';

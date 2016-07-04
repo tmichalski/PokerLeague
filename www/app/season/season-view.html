@@ -2,27 +2,33 @@
   <ion-nav-title>{{vm.season.year}} {{vm.season.league.name}}</ion-nav-title>
 
   <ion-nav-buttons side="secondary">
-    <button ng-if="vm.showEditButton" class="button" ng-click="vm.seasonEdit({id: vm.season.id})">Edit</button>
+    <button class="button" ng-click="vm.seasonEdit({id: vm.season.id})">Edit</button>
   </ion-nav-buttons>
 
   <ion-content padding="true" class="has-header">
     <h3>Ranking</h3>
-    <ion-list>
-      <ion-item ng-repeat="ranking in vm.season.rankings">
-        {{ranking.rank}}. {{ranking.user.name}} {{ranking.winnings | currency:"$":0}}
-        <span class="item-note">-{{user.outFromFirst | currency:"$":0}}</span>
-      </ion-item>
-    </ion-list>
+
+    <div class="card">
+      <ion-list>
+        <ion-item ng-repeat="ranking in vm.season.rankings">
+          {{ranking.rank}}. {{ranking.user.name}} {{ranking.winnings | currency:"$":0}}
+          <span class="item-note">-{{user.outFromFirst | currency:"$":0}}</span>
+        </ion-item>
+      </ion-list>
+    </div>
 
     <div class="spacer" style="width: 300px; height: 18px;"></div>
 
     <h3>Schedule</h3>
-    <ion-list>
-      <ion-item ng-repeat="event in vm.season.events" ng-click="vm.viewEvent({id: event.id, seasonId: vm.season.id})">
-        {{event.eventDate | date:'shortDate'}} {{event.hostUser.name}}
-        <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
-      </ion-item>
-    </ion-list>
-    <button ng-if="vm.showEditButton" ng-click="vm.addEvent({seasonId:vm.season.id})" id="home-add-event" class="button button-positive button-block button-outline">Add Event</button>
+    <div class="card">
+      <ion-list>
+        <ion-item ng-repeat="event in vm.season.events" ng-click="vm.viewEvent({id: event.id, seasonId: vm.season.id})">
+          {{event.eventDate | date:'shortDate'}} {{event.hostUser.name}}
+          <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <button ng-click="vm.addEvent({seasonId:vm.season.id})" id="home-add-event" class="button button-positive button-block button-outline">Add Event</button>
   </ion-content>
 </ion-view>

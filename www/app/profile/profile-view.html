@@ -1,22 +1,23 @@
-<ion-view title="My Profile">
-    <ion-content padding="true" class="has-header">
-        <div class="list card">
-            <ion-item class="item-avatar">
-                <h2>{{vm.profile.name}}</h2>
-                <p>{{vm.profile.email}}</p>
-            </ion-item>
-        </div>
-      <div>
-        <a ng-click="vm.logout()" class="button button-positive button-block button-outline">Log out of Poker League</a>
-      </div>
+<ion-view>
+  <ion-nav-title>Profile</ion-nav-title>
+  <ion-content padding="true" class="has-header">
+    <div class="list card">
+      <ion-item class="item-avatar">
+        <h2>{{vm.profile.name}}</h2>
+        <p>{{vm.profile.email}}</p>
+      </ion-item>
+    </div>
+    <div>
+      <a ng-click="vm.logout()" class="button button-positive button-block button-outline">Log out of Poker League</a>
+    </div>
 
-      <div id="delete-season-container">
-        <div class="spacer" style="width: 300px; height: 50px;"></div>
-        <button ng-click="vm.leaveLeague()" class="button button-assertive button-block">Leave League</button>
-        <p style="color:#000000;">
-          <strong>WARNING!</strong> Leaving this league will disconnect you from your league data.
-        </p>
-      </div>
+    <div id="delete-season-container">
+      <div class="spacer" style="width: 300px; height: 50px;"></div>
+      <button ng-click="vm.leaveLeague()" class="button button-assertive button-block">Leave League</button>
+      <p style="color:#000000;">
+        <strong>WARNING!</strong> Leaving this league will disconnect you from your league data.
+      </p>
+    </div>
 
-    </ion-content>
+  </ion-content>
 </ion-view>

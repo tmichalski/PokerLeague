@@ -3,25 +3,22 @@
 
   angular
     .module('app.member')
-    .factory('leagueService', LeagueService);
+    .factory('memberService', MemberService);
 
-  LeagueService.$inject = ['$http', 'appConfig'];
+  MemberService.$inject = ['Member', 'historyService'];
 
-  function LeagueService($http, appConfig) {
+  function MemberService(Member, historyService) {
 
     return {
-      getLeague: getLeague
+      getMember: getMember
     };
 
     ////////////
 
-    function getLeague() {
-      return $http.get(appConfig.serverHostName + '/league')
-        .then(function(response) {
-          return response.data;
-        }, function (response) {
-          console.log("An error occurred while requesting to leave a league.", response);
-        });
+    function getMember(id) {
+      var member = Member.get({id: id});
+      historyService.removeBackFor(["tab.memberEdit", "tab.memberAdd"]);
+      return member;
     }
   }
 

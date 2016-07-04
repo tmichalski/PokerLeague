@@ -9,7 +9,8 @@
         <span class="input-label">Season Year</span>
         <input type="text" ng-model="vm.seasonYear">
       </label>
-      <button type="submit" class="button button-positive button-block button-outline">Create League</button>
+      <button ng-if="vm.isUserLoggedIn" type="submit" class="button button-positive button-block button-outline">Create League</button>
+      <a ng-if="!vm.isUserLoggedIn" ng-click="vm.facebookLogin()" class="button button-positive button-block">Login with Facebook</a>
     </form>
   </ion-content>
 </ion-view>

@@ -5,14 +5,15 @@
     .module('app.register')
     .factory('registerService', RegisterService);
 
-  RegisterService.$inject = ['$http', 'appConfig'];
+  RegisterService.$inject = ['$q', '$http', '$window', 'appConfig'];
 
-  function RegisterService($http, appConfig) {
+  function RegisterService($q, $http, $window, appConfig) {
 
     return {
       join: join,
       leave: leave,
-      create: create
+      create: create,
+      loginWithFacebook: loginWithFacebook
     };
 
     ////////////
@@ -52,10 +53,31 @@
         });
     }
 
-    function facebookLogin() {
-      return $q(function(resolve, reject) {
-        facebookConnectPlugin.login(['email', 'public_profile'], resolve, reject);
-      });
+    function loginWithFacebook() {
+      return _facebookLogin()
+        .then(_appLogin)
+        .then(_saveUserToken)
+        .then(_getUserLeagues);
+
+      function _facebookLogin() {
+        return $q(function(resolve, reject) {
+          facebookConnectPlugin.login(['email', 'public_profile'], resolve, reject);
+        });
+      }
+
+      function _appLogin(userData) {
+        var accessToken = userData.authResponse.accessToken;
+        return $http.post(appConfig.serverHostName + '/login', {facebookAccessToken: accessToken});
+      }
+
+      function _saveUserToken(loginResponse) {
+        $window.localStorage.authToken = loginResponse.data.authToken;
+        return $q.resolve(loginResponse);
+      }
+
+      function _getUserLeagues(loginResponse) {
+        return loginResponse.data.leagues;
+      }
     }
 
   }

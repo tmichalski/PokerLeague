@@ -14,7 +14,7 @@
       </ion-item>
     </div>
 
-    <h3>Buy-Ins</h3>
+    <h3>Members</h3>
     <div class="list card">
       <div class="row" style="font-weight: bold">
         <div class="col">Rank</div>
@@ -23,10 +23,10 @@
       </div>
 
       <div>
-        <div ng-repeat="user in vm.users" class="row">
-          <div class="col">{{$index+1}}. {{user.name}}</div>
-          <div class="col" style="text-align: right">{{user.buyins | currency}}</div>
-          <div class="col" style="text-align: right">{{user.results | currency}}</div>
+        <div ng-repeat="members in vm.members" class="row">
+          <div class="col">{{$index+1}}. {{members.name}}</div>
+          <div class="col" style="text-align: right">{{members.buyins | currency}}</div>
+          <div class="col" style="text-align: right">{{members.results | currency}}</div>
         </div>
       </div>
 

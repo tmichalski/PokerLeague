@@ -5,11 +5,11 @@
     .module('app.profile')
     .controller('ProfileViewCtrl', ProfileViewCtrl);
 
-  ProfileViewCtrl.$inject = ['$state', '$window', '$ionicPopup', 'Profile', 'leagueService'];
+  ProfileViewCtrl.$inject = ['$window', '$ionicPopup', 'Profile', 'registerService', 'routeService'];
 
   //////////////
 
-  function ProfileViewCtrl($state, $window, $ionicPopup, Profile, leagueService) {
+  function ProfileViewCtrl($window, $ionicPopup, Profile, registerService, routeService) {
     var vm = this;
 
     vm.profile = profile();
@@ -29,7 +29,7 @@
       confirm.then(function(res) {
         if (res) {
           $window.localStorage.removeItem('authToken');
-          $state.go("register");
+          routeService.go("register");
         }
       });
     }
@@ -42,9 +42,9 @@
 
       confirm.then(function(res) {
         if (res) {
-          leagueService.leaveLeague()
+          registerService.leave()
             .then(function() {
-              $state.go("register");
+              routeService.go("register");
             });
         }
       });

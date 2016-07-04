@@ -38,8 +38,8 @@
         method: 'DELETE'
       },
 
-      users: {
-        url: appConfig.serverHostName + '/events/:id/users',
+      members: {
+        url: appConfig.serverHostName + '/events/:id/members',
         method: 'GET',
         isArray: true
       }

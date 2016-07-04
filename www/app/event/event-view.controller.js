@@ -14,7 +14,7 @@
     var eventId = $stateParams.id;
 
     vm.event = getEvent();
-    vm.users = getEventUsers();
+    vm.members = getEventMembers();
     vm.activities = getEventActivities();
     vm.saveNote = saveNote;
     vm.editEvent = editEvent;
@@ -23,8 +23,8 @@
       return eventService.getEvent(eventId);
     }
 
-    function getEventUsers() {
-      return eventService.getEventUsers(eventId)
+    function getEventMembers() {
+      return eventService.getEventMembers(eventId)
     }
 
     function getEventActivities() {

@@ -22,6 +22,10 @@
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
 
   <style type="text/css">
+    .pane, .view {
+      background-color: #f5f5f5;
+    }
+
     .platform-ios .manual-ios-statusbar-padding {
       padding-top: 20px;
     }
@@ -49,10 +53,8 @@
   <!-- AUTH -->
   <script src="app/auth/auth.module.js"></script>
   <script src="app/auth/auth.config.js"></script>
-  <script src="app/auth/auth.routes.js"></script>
   <script src="app/auth/auth-request.interceptor.js"></script>
   <script src="app/auth/auth-response-401.interceptor.js"></script>
-  <script src="app/auth/auth-login.controller.js"></script>
 
   <!-- REGISTER -->
   <script src="app/register/register.module.js"></script>
@@ -77,8 +79,11 @@
   <!-- MEMBER -->
   <script src="app/member/member.module.js"></script>
   <script src="app/member/member.routes.js"></script>
+  <script src="app/member/member.resource.js"></script>
   <script src="app/member/member.service.js"></script>
-  <script src="app/member/member-home.controller.js"></script>
+  <script src="app/member/member-list.controller.js"></script>
+  <script src="app/member/member-view.controller.js"></script>
+  <script src="app/member/member-edit.controller.js"></script>
 
   <!-- SEASON -->
   <script src="app/season/season.module.js"></script>
@@ -96,7 +101,6 @@
   <script src="app/event/event.service.js"></script>
   <script src="app/event/event-view.controller.js"></script>
   <script src="app/event/event-edit.controller.js"></script>
-
 </head>
 <body ng-app="app" animation="slide-left-right-ios7">
 <div>

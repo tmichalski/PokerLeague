@@ -11,7 +11,7 @@
 
     return {
       getEvent: getEvent,
-      getEventUsers: getEventUsers,
+      getEventMembers: getEventMembers,
       getEventActivities: getEventActivities,
       saveEventActivity: saveEventActivity,
       deleteEventActivity: deleteEventActivity,
@@ -26,8 +26,8 @@
       return event;
     }
 
-    function getEventUsers(id) {
-      return Event.users({id: id});
+    function getEventMembers(id) {
+      return Event.members({id: id});
     }
 
     function getEventActivities(id) {

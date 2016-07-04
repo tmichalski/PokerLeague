@@ -1,0 +1,41 @@
+<ion-view>
+  <ion-nav-title>Member</ion-nav-title>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="vm.memberEdit({id: vm.member.id})">Edit</button>
+  </ion-nav-buttons>
+
+  <ion-content padding="true" class="has-header">
+
+    <h4>Profile</h4>
+    <div class="list card">
+      <ion-item>
+        <h2>{{vm.member.name}}</h2>
+        <p>{{vm.member.email}}</p>
+        <p>Administrator: {{vm.member.isAdmin}}</p>
+        <p>Membership Active: {{vm.member.isActive}}</p>
+      </ion-item>
+    </div>
+
+    <h4>Access Code</h4>
+    <div class="list card">
+      <ion-item>
+        <p>{{vm.member.accessCode}}</p>
+      </ion-item>
+    </div>
+
+    <h4>Seasons</h4>
+    <div class="list card">
+      <ion-list>
+        <ion-item ng-repeat="season in vm.member.seasons" class="item-icon-right">
+          {{season.year}}
+          <span class="item-note">Winnings: {{season.winnings | currency:"$":0}}</span>
+        </ion-item>
+        <ion-item ng-if="vm.member.seasons.length == 0" class="item-icon-right">
+          None
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </ion-content>
+</ion-view>
