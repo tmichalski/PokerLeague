@@ -5,9 +5,9 @@
     .module('app.member')
     .factory('memberService', MemberService);
 
-  MemberService.$inject = ['Member', 'historyService'];
+  MemberService.$inject = ['Member'];
 
-  function MemberService(Member, historyService) {
+  function MemberService(Member) {
 
     return {
       getMember: getMember
@@ -16,9 +16,7 @@
     ////////////
 
     function getMember(id) {
-      var member = Member.get({id: id});
-      historyService.removeBackFor(["tab.memberEdit", "tab.memberAdd"]);
-      return member;
+      return Member.get({id: id});
     }
   }
 

@@ -5,11 +5,11 @@
     .module('app.member')
     .controller('MemberEditCtrl', MemberEditCtrl);
 
-  MemberEditCtrl.$inject = ['$stateParams', 'Member', 'routeService'];
+  MemberEditCtrl.$inject = ['$stateParams', '$ionicPopup', 'Member', 'routeService', 'historyService'];
 
   //////////////
 
-  function MemberEditCtrl($stateParams, Member, routeService) {
+  function MemberEditCtrl($stateParams, $ionicPopup, Member, routeService, historyService) {
     var vm = this;
 
     vm.member = getMember();
@@ -38,15 +38,21 @@
     }
 
     function deleteMember() {
-      var msg = "Are you sure you want to delete " + vm.member.name + "?\n\n"
-        + "WARNING! Deleting this league member will also delete all event activity and information tied to the member. ";
+      var confirm = $ionicPopup.confirm({
+        title: "Delete Member",
+        template: "Are you sure you want to delete " + vm.member.name + "?<br /><br />"
+        + "WARNING! Deleting this league member will also delete all event activity and information tied to the member."
+      });
 
-      if (window.confirm(msg)) {
-        vm.member.$delete()
-          .then(function () {
-            routeService.go("tab.memberView", {id: vm.member.id});
-          });
-      }
+      confirm.then(function(res) {
+        if (res) {
+          vm.member.$delete()
+            .then(function () {
+              historyService.nextViewIsRoot();
+              routeService.go("tab.members");
+            });
+        }
+      });
     }
   }
 

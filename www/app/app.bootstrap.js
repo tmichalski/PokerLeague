@@ -5,14 +5,18 @@
     .module('app')
     .run(Bootstrap);
 
-  Bootstrap.$inject = ['$window', '$ionicPlatform', 'appConfig'];
+  Bootstrap.$inject = ['$window', '$ionicPlatform', '$rootScope', 'appConfig', 'historyService'];
 
-  function Bootstrap($window, $ionicPlatform, appConfig) {
+  function Bootstrap($window, $ionicPlatform, $rootScope, appConfig, historyService) {
     $ionicPlatform.ready(function () {
 
       if ($window.cordova.platformId == "browser") {
         facebookConnectPlugin.browserInit(appConfig.facebookAppId);
       }
+
+      $rootScope.$on('$ionicView.beforeEnter', function() {
+        historyService.removeIgnoredViews();
+      });
 
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)

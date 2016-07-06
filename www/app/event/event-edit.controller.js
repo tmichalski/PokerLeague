@@ -5,11 +5,11 @@
     .module('app.event')
     .controller('EventEditCtrl', EventEditCtrl);
 
-  EventEditCtrl.$inject = ['$stateParams', 'Event', 'Profile', 'Season', 'eventService', 'routeService'];
+  EventEditCtrl.$inject = ['$stateParams', '$ionicPopup', 'Event', 'Profile', 'Season', 'eventService', 'routeService'];
 
   //////////////
 
-  function EventEditCtrl($stateParams, Event, Profile, Season, eventService, routeService) {
+  function EventEditCtrl($stateParams, $ionicPopup, Event, Profile, Season, eventService, routeService) {
     var vm = this;
     vm.event = getEvent();
     vm.users = getUsers();
@@ -47,15 +47,20 @@
     }
 
     function deleteEvent() {
-      var msg = "Are you sure you want to delete the " + vm.event.name + " event?\n\n"
-        + "WARNING! Deleting your event will also delete all information tied to an event.";
+      var confirm = $ionicPopup.confirm({
+        title: "Delete Event",
+        template: 'Are you sure you want to delete the ' + vm.event.name + ' event?<br /><br />'
+        + 'WARNING! Deleting your event will also delete all information tied to an event.'
+      });
 
-      if (window.confirm(msg)) {
-        vm.event.$delete()
-          .then(function () {
-            routeService.go('tab.event', {id: vm.event.id});
-          });
-      }
+      confirm.then(function(res) {
+        if (res) {
+          vm.event.$delete()
+            .then(function () {
+              routeService.go('tab.event', {id: vm.event.id});
+            });
+        }
+      });
     }
   }
 

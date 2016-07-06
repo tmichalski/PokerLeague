@@ -7,7 +7,7 @@
 
   EventService.$inject = ['historyService', 'Event'];
 
-  function EventService(historyService, Event) {
+  function EventService(Event) {
 
     return {
       getEvent: getEvent,
@@ -21,9 +21,7 @@
     //////////////
 
     function getEvent(id) {
-      var event = Event.get({id: id});
-      historyService.removeBackFor(["tab.eventEdit", "tab.eventAdd"]);
-      return event;
+      return Event.get({id: id});
     }
 
     function getEventMembers(id) {

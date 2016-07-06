@@ -34,9 +34,10 @@
           }
         }
       })
-      
+
       .state('tab.memberAdd', {
         url: '/members/add',
+        back: false,
         views: {
           'membersTab': {
             templateUrl: 'app/member/member-edit.html',
@@ -47,6 +48,7 @@
 
       .state('tab.memberEdit', {
         url: '/members/:id/edit',
+        back: false,
         views: {
           'membersTab': {
             templateUrl: 'app/member/member-edit.html',

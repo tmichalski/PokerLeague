@@ -10,7 +10,7 @@
   //////////////
 
   function Member($resource, appConfig) {
-    return $resource(appConfig.serverHostName + '/members/:id');
+    return $resource(appConfig.serverHostName + '/members/:id', {id: '@id'});
   }
 
 })();

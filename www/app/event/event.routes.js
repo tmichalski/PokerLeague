@@ -26,6 +26,7 @@
 
       .state('tab.eventAdd', {
         url: '/seasons/:seasonId/event/add',
+        back: false,
         views: {
           'seasonsTab': {
             templateUrl: 'app/event/event-edit.html',
@@ -36,6 +37,7 @@
 
       .state('tab.eventEdit', {
         url: '/seasons/:seasonId/event/:id/edit',
+        back: false,
         views: {
           'seasonsTab': {
             templateUrl: 'app/event/event-edit.html',

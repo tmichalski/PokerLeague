@@ -10,11 +10,16 @@
   function RouteService($state) {
 
     return {
+      get: get,
       go: go,
       getRoute: getRoute
     };
 
     ////////////
+
+    function get(routeName) {
+      return $state.get(routeName);
+    }
 
     function go(routeName, params) {
       $state.go(getRoute(routeName), params);
@@ -23,7 +28,7 @@
     function getRoute(routeName) {
       var ctrlConfig = ($state.current || {});
       var route = (ctrlConfig.route || {});
-      return route[(routeName)] || routeName;
+      return route[routeName] || routeName;
     }
 
   }

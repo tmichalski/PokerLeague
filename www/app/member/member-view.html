@@ -12,8 +12,9 @@
       <ion-item>
         <h2>{{vm.member.name}}</h2>
         <p>{{vm.member.email}}</p>
-        <p>Administrator: {{vm.member.isAdmin}}</p>
-        <p>Membership Active: {{vm.member.isActive}}</p>
+        <p ng-if="vm.member.isAdmin">Administrator</p>
+        <p ng-if="vm.member.isActive">Active Member</p>
+        <p ng-if="!vm.member.isActive">Inactive Member</p>
       </ion-item>
     </div>
 

@@ -32,18 +32,12 @@
             templateUrl: 'app/season/season-view.html',
             controller: 'SeasonViewCtrl as vm'
           }
-        },
-        back: {
-          state: 'tab.seasons',
-          nextViewOptions: {
-            disableBack: true,
-            historyRoot: true
-          }
         }
       })
 
       .state('tab.seasonAdd', {
         url: '/seasons/add',
+        back: false,
         views: {
           'seasonsTab': {
             templateUrl: 'app/season/season-edit.html',
@@ -54,6 +48,7 @@
 
       .state('tab.seasonEdit', {
         url: '/seasons/:id/edit',
+        back: false,
         views: {
           'seasonsTab': {
             templateUrl: 'app/season/season-edit.html',
@@ -62,6 +57,5 @@
         }
       });
   }
-
 
 })();

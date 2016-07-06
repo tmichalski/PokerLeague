@@ -5,11 +5,11 @@
     .module('app.season')
     .controller('SeasonEditCtrl', SeasonEditCtrl);
 
-  SeasonEditCtrl.$inject = ['$stateParams', 'Season', 'routeService'];
+  SeasonEditCtrl.$inject = ['$stateParams', '$ionicPopup', 'Season', 'routeService', 'historyService'];
 
   //////////////
 
-  function SeasonEditCtrl($stateParams, Season, routeService) {
+  function SeasonEditCtrl($stateParams, $ionicPopup, Season, routeService, historyService) {
     var vm = this;
 
     vm.season = getSeason();
@@ -37,15 +37,21 @@
     }
 
     function deleteSeason() {
-      var msg = "Are you sure you want to delete the " + vm.season.year + " season?\n\n"
-        + "WARNING! Deleting your season will also delete all events and information tied to a season. ";
+      var confirm = $ionicPopup.confirm({
+        title: "Delete Season",
+        template: "Are you sure you want to delete the " + vm.season.year + " season?<br /><br />"
+        + "WARNING! Deleting your season will also delete all events and information tied to a season. "
+      });
 
-      if (window.confirm(msg)) {
-        vm.season.$delete()
-          .then(function () {
-            routeService.go("tab.seasonView", {id: vm.season.id});
-          });
-      }
+      confirm.then(function(res) {
+        if (res) {
+          vm.season.$delete()
+            .then(function () {
+              historyService.nextViewIsRoot();
+              routeService.go("tab.seasons");
+            });
+        }
+      });
     }
   }
 

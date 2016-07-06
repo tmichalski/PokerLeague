@@ -20,12 +20,28 @@
    * @param stateNames - an array of strings that match history pages (aka State Names)
    */
   function HistoryService($ionicHistory, routeService) {
-
     return {
-      removeBackFor: removeBackFor
+      nextViewIsRoot: nextViewIsRoot,
+      removeBackFor: removeBackFor,
+      removeIgnoredViews: removeIgnoredViews
     };
 
     ////////////
+
+    function removeIgnoredViews() {
+      var backView = $ionicHistory.backView() || {};
+      var stateView = routeService.get(backView.stateName) || {};
+      if (stateView.back != null && !stateView.back) {
+        $ionicHistory.removeBackView();
+      }
+    }
+
+    function nextViewIsRoot() {
+      $ionicHistory.nextViewOptions({
+        disableAnimate: true,
+        historyRoot: true
+      })
+    }
 
     function removeBackFor(stateNames) {
       if (!stateNames || stateNames.length == 0) return;
