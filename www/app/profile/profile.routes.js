@@ -15,11 +15,29 @@
 
       .state('tab.profile', {
         url: '/profile',
+        cache: false,
         views: {
           'profileTab': {
-            templateUrl: 'app/profile/profile-view.html',
-            controller: 'ProfileViewCtrl as vm'
+            templateUrl: 'app/member/member-view.html',
+            controller: 'MemberViewCtrl as vm'
           }
+        },
+        redirect: {
+          'tab.memberEdit': 'tab.profileMemberEdit'
+        }
+      })
+
+      .state('tab.profileMemberEdit', {
+        url: '/profile/:id/edit',
+        back: false,
+        views: {
+          'profileTab': {
+            templateUrl: 'app/member/member-edit.html',
+            controller: 'MemberEditCtrl as vm'
+          }
+        },
+        redirect: {
+          'tab.memberView': 'tab.profile'
         }
       });
   }

@@ -22,7 +22,7 @@
             controller: 'SeasonViewCtrl as vm'
           }
         },
-        route: {
+        redirect: {
           'tab.event': 'tab.leagueEventView',
           'tab.eventAdd': 'tab.leagueEventAdd',
           'tab.seasonEdit': 'tab.leagueSeasonEdit'
@@ -37,7 +37,7 @@
             controller: 'SeasonEditCtrl as vm'
           }
         },
-        route: {
+        redirect: {
           'tab.seasonView': 'tab.league'
         }
       })
@@ -51,7 +51,7 @@
             controller: 'EventViewCtrl as vm'
           }
         },
-        route: {
+        redirect: {
           'tab.eventEdit': 'tab.leagueEventEdit'
         }
       })
@@ -64,7 +64,7 @@
             controller: 'EventEditCtrl as vm'
           }
         },
-        route: {
+        redirect: {
           'tab.event': 'tab.leagueEventView'
         }
       })
@@ -77,7 +77,7 @@
             controller: 'EventEditCtrl as vm'
           }
         },
-        route: {
+        redirect: {
           'tab.event': 'tab.leagueEventView'
         }
       });

@@ -5,7 +5,7 @@
     .module('app.event')
     .factory('eventService', EventService);
 
-  EventService.$inject = ['historyService', 'Event'];
+  EventService.$inject = ['Event'];
 
   function EventService(Event) {
 

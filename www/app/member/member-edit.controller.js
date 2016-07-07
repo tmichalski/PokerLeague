@@ -5,16 +5,18 @@
     .module('app.member')
     .controller('MemberEditCtrl', MemberEditCtrl);
 
-  MemberEditCtrl.$inject = ['$stateParams', '$ionicPopup', 'Member', 'routeService', 'historyService'];
+  MemberEditCtrl.$inject = ['$state', '$stateParams', '$ionicPopup', 'Member', 'routeService', 'historyService', 'registerService'];
 
   //////////////
 
-  function MemberEditCtrl($stateParams, $ionicPopup, Member, routeService, historyService) {
+  function MemberEditCtrl($state, $stateParams, $ionicPopup, Member, routeService, historyService, registerService) {
     var vm = this;
 
     vm.member = getMember();
+    vm.isProfileTab = isProfileTab();
     vm.saveMember = saveMember;
     vm.deleteMember = deleteMember;
+    vm.leaveLeague = leaveLeague;
 
     function getMember() {
       var member;
@@ -28,6 +30,10 @@
       }
 
       return member;
+    }
+
+    function isProfileTab() {
+      return !!$state.current.views.profileTab;
     }
 
     function saveMember() {
@@ -50,6 +56,22 @@
             .then(function () {
               historyService.nextViewIsRoot();
               routeService.go("tab.members");
+            });
+        }
+      });
+    }
+
+    function leaveLeague() {
+      var confirm = $ionicPopup.confirm({
+        title: "Leave League",
+        template: "Are you sure you want to leave the league?"
+      });
+
+      confirm.then(function(res) {
+        if (res) {
+          registerService.leave()
+            .then(function() {
+              routeService.go("register");
             });
         }
       });

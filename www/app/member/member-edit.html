@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-nav-title>Member {{vm.member.id ? 'Edit' : 'Add'}}</ion-nav-title>
+  <ion-nav-title>{{vm.isProfileTab ? 'Profile' : 'Member'}} {{vm.member.id ? 'Edit' : 'Add'}}</ion-nav-title>
   <ion-content padding="true" class="has-header">
     <form class="list" ng-submit="vm.saveMember()">
       <label class="item item-input" name="name">
@@ -11,11 +11,19 @@
       <button type="submit" class="button button-block button-positive button-outline">Save</button>
     </form>
 
-    <div id="delete-member-container" ng-if="vm.member.id">
+    <div ng-if="!vm.isProfileTab && vm.member.id">
       <div class="spacer" style="width: 300px; height: 51px;"></div>
       <button ng-click="vm.deleteMember()" class="button button-assertive button-block">Delete Member</button>
       <p style="color:#000000;" class=" ">
         <strong>WARNING!</strong> Deleting this member will also delete all event activity and information tied to this member.
+      </p>
+    </div>
+
+    <div ng-if="vm.isProfileTab">
+      <div class="spacer" style="width: 300px; height: 50px;"></div>
+      <button ng-click="vm.leaveLeague()" class="button button-assertive button-block">Leave League</button>
+      <p style="color:#000000;">
+        <strong>WARNING!</strong> Leaving this league will disconnect you from your league data.
       </p>
     </div>
 

@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-nav-title>Member</ion-nav-title>
+  <ion-nav-title>{{vm.isProfileTab ? 'Profile' : 'Member'}}</ion-nav-title>
 
   <ion-nav-buttons side="secondary">
     <button class="button" ng-click="vm.memberEdit({id: vm.member.id})">Edit</button>
@@ -36,6 +36,10 @@
           None
         </ion-item>
       </ion-list>
+    </div>
+
+    <div ng-if="vm.isProfileTab">
+      <a ng-click="vm.logout()" class="button button-positive button-block button-outline">Log out of Poker League</a>
     </div>
 
   </ion-content>

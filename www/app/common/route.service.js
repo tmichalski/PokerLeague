@@ -27,8 +27,8 @@
 
     function getRoute(routeName) {
       var ctrlConfig = ($state.current || {});
-      var route = (ctrlConfig.route || {});
-      return route[routeName] || routeName;
+      var redirect = (ctrlConfig.redirect || {});
+      return redirect[routeName] || routeName;
     }
 
   }
