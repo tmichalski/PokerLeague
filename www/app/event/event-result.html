@@ -1,0 +1,16 @@
+<ion-view>
+  <ion-nav-title>{{vm.event.eventDate | date:'shortDate'}} Final Results</ion-nav-title>
+  <ion-content padding="true" class="has-header">
+    <form class="list" ng-submit="vm.save()">
+      <label class="item item-input" name="member">
+        <span class="input-label">Member</span>
+        <select ng-model="vm.result.member" ng-options="member.name for member in vm.members track by member.id"></select>
+      </label>
+      <label class="item item-input" name="amount">
+        <span class="input-label">Amount</span>
+        $ &nbsp; <input type="number" ng-model="vm.result.amount">
+      </label>
+      <button type="submit" class="button button-block button-positive button-outline">Save</button>
+    </form>
+  </ion-content>
+</ion-view>

@@ -52,7 +52,8 @@
           }
         },
         redirect: {
-          'tab.eventEdit': 'tab.leagueEventEdit'
+          'tab.eventEdit': 'tab.leagueEventEdit',
+          'tab.eventAddBuyIn': 'tab.leagueEventAddBuyIn'
         }
       })
 
@@ -75,6 +76,34 @@
           'leagueTab': {
             templateUrl: 'app/event/event-edit.html',
             controller: 'EventEditCtrl as vm'
+          }
+        },
+        redirect: {
+          'tab.event': 'tab.leagueEventView'
+        }
+      })
+
+      .state('tab.leagueEventAddBuyIn', {
+        url: '/league/:seasonId/event/:id/buyin',
+        back: false,
+        views: {
+          'leagueTab': {
+            templateUrl: 'app/event/event-buyin.html',
+            controller: 'EventBuyInCtrl as vm'
+          }
+        },
+        redirect: {
+          'tab.event': 'tab.leagueEventView'
+        }
+      })
+
+      .state('tab.leagueEventAddResult', {
+        url: '/league/:seasonId/event/:id/result',
+        back: false,
+        views: {
+          'leagueTab': {
+            templateUrl: 'app/event/event-result.html',
+            controller: 'EventResultCtrl as vm'
           }
         },
         redirect: {

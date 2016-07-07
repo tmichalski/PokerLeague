@@ -18,6 +18,8 @@
     vm.activities = getEventActivities();
     vm.saveNote = saveNote;
     vm.editEvent = editEvent;
+    vm.addBuyIn = addBuyIn;
+    vm.addResult = addResult;
 
     function getEvent() {
       return eventService.getEvent(eventId);
@@ -56,8 +58,16 @@
       }
     }
 
-    function editEvent(params) {
-      routeService.go('tab.eventEdit', params);
+    function editEvent() {
+      routeService.go('tab.eventEdit', {id: vm.event.id, seasonId: vm.event.season.id});
+    }
+
+    function addBuyIn() {
+      routeService.go('tab.eventAddBuyIn', {id: vm.event.id, seasonId: vm.event.season.id});
+    }
+
+    function addResult() {
+      routeService.go('tab.eventAddResult', {id: vm.event.id, seasonId: vm.event.season.id});
     }
   }
 

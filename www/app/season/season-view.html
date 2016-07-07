@@ -23,7 +23,7 @@
     <div class="card">
       <ion-list>
         <ion-item ng-repeat="event in vm.season.events" ng-click="vm.viewEvent({id: event.id, seasonId: vm.season.id})">
-          {{event.eventDate | date:'shortDate'}} {{event.hostUser.name}}
+          {{event.eventDate | date:'shortDate'}} {{event.hostMember.name}}
           <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
         </ion-item>
       </ion-list>

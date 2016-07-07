@@ -15,7 +15,9 @@
       getEventActivities: getEventActivities,
       saveEventActivity: saveEventActivity,
       deleteEventActivity: deleteEventActivity,
-      saveEvent: saveEvent
+      saveEvent: saveEvent,
+      saveEventBuyIn: saveEventBuyIn,
+      saveEventResult: saveEventResult
     };
 
     //////////////
@@ -40,17 +42,24 @@
       return Event.deleteActivity({id: id, activityId: activityId}).$promise;
     }
 
-    function saveEvent(eventId, seasonId, name, hostUserId, eventDate) {
+    function saveEvent(eventId, seasonId, name, hostMemberId, eventDate) {
       var event = new Event({
         id: eventId,
         seasonId: seasonId,
         name: name,
-        hostUserId: hostUserId,
+        hostMemberId: hostMemberId,
         eventDate: moment(eventDate).format()
       });
       return event.$save();
     }
 
+    function saveEventBuyIn(id, leagueMemberId, amount) {
+      return Event.saveActivity({id: id, type: 2, leagueMemberId: leagueMemberId, amount: amount}).$promise;
+    }
+
+    function saveEventResult(id, leagueMemberId, amount) {
+      return Event.saveActivity({id: id, type: 3, leagueMemberId: leagueMemberId, amount: amount}).$promise;
+    }
   }
 
 })();

@@ -2,20 +2,20 @@
   <ion-nav-title>{{vm.event.eventDate | date:'shortDate'}} {{vm.event.name}}</ion-nav-title>
 
   <ion-nav-buttons side="secondary">
-    <button class="button" ng-click="vm.editEvent({id: vm.event.id})">Edit</button>
+    <button class="button" ng-click="vm.editEvent()">Edit</button>
   </ion-nav-buttons>
 
   <ion-content padding="true" class="has-header">
     <h3>Host</h3>
     <div class="list card">
-      <ion-item class="item-avatar">
-        <h2>{{vm.event.hostUser.name}}</h2>
-        <p>{{vm.event.hostUser.email}}</p>
+      <ion-item>
+        <h2>{{vm.event.hostMember.name}}</h2>
+        <p>{{vm.event.hostMember.email}}</p>
       </ion-item>
     </div>
 
     <h3>Members</h3>
-    <div class="list card">
+    <div ng-if="vm.members.length > 0" class="list card">
       <div class="row" style="font-weight: bold">
         <div class="col">Rank</div>
         <div class="col" style="text-align: right">Buy-In</div>
@@ -25,12 +25,14 @@
       <div>
         <div ng-repeat="members in vm.members" class="row">
           <div class="col">{{$index+1}}. {{members.name}}</div>
-          <div class="col" style="text-align: right">{{members.buyins | currency}}</div>
-          <div class="col" style="text-align: right">{{members.results | currency}}</div>
+          <div class="col" style="text-align: right">{{members.buyins | currency | default:'$0.00'}}</div>
+          <div class="col" style="text-align: right">{{members.results | currency | default:'$0.00'}}</div>
         </div>
       </div>
-
     </div>
+
+    <button type="submit" ng-click="vm.addBuyIn()" class="button button-block button-positive button-outline">Add Buy-In</button>
+    <button type="submit" ng-click="vm.addResult()" class="button button-block button-positive button-outline">Add Result</button>
 
     <div class="spacer" style="width: 300px; height: 18px;"></div>
 
@@ -44,7 +46,6 @@
 
     <div class="card" ng-repeat="activity in vm.activities" on-swipe-left="deleteActivity(activity.id)">
       <div class="item item-text-wrap">
-        <!--<avatar user="activity.createdByUser" height="35" width="35"></avatar>-->
         <h2>{{activity.createdDtm | date:'shortTime'}} {{activity.createdByUser.name}}</h2>
         <p style="white-space:normal;">{{activity.note}}</p>
       </div>

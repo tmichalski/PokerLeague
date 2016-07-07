@@ -44,7 +44,30 @@
             controller: 'EventEditCtrl as vm'
           }
         }
-      });
+      })
+
+      .state('tab.eventAddBuyIn', {
+        url: '/seasons/:seasonId/event/:id/buyin',
+        back: false,
+        views: {
+          'seasonsTab': {
+            templateUrl: 'app/event/event-buyin.html',
+            controller: 'EventBuyInCtrl as vm'
+          }
+        }
+      })
+
+      .state('tab.eventAddResult', {
+        url: '/seasons/:seasonId/event/:id/result',
+        back: false,
+        views: {
+          'seasonsTab': {
+            templateUrl: 'app/event/event-result.html',
+            controller: 'EventResultCtrl as vm'
+          }
+        }
+      })
+    ;
   }
 
 

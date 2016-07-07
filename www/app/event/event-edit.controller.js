@@ -5,14 +5,14 @@
     .module('app.event')
     .controller('EventEditCtrl', EventEditCtrl);
 
-  EventEditCtrl.$inject = ['$stateParams', '$ionicPopup', 'Event', 'Profile', 'Season', 'eventService', 'routeService'];
+  EventEditCtrl.$inject = ['$stateParams', '$ionicPopup', 'Event', 'Member', 'Season', 'eventService', 'routeService'];
 
   //////////////
 
-  function EventEditCtrl($stateParams, $ionicPopup, Event, Profile, Season, eventService, routeService) {
+  function EventEditCtrl($stateParams, $ionicPopup, Event, Member, Season, eventService, routeService) {
     var vm = this;
     vm.event = getEvent();
-    vm.users = getUsers();
+    vm.members = getMembers();
     vm.seasons = getSeasons();
     vm.saveEvent = saveEvent;
     vm.deleteEvent = deleteEvent;
@@ -35,14 +35,14 @@
       return Season.query();
     }
 
-    function getUsers() {
-      return Profile.query();
+    function getMembers() {
+      return Member.query();
     }
 
     function saveEvent() {
-      eventService.saveEvent(vm.event.id, vm.event.season.id, vm.event.name, vm.event.hostUser.id, vm.event.eventDate)
+      eventService.saveEvent(vm.event.id, vm.event.season.id, vm.event.name, vm.event.hostMember.id, vm.event.eventDate)
         .then(function(event) {
-          routeService.go('tab.event', {id: event.id});
+          routeService.go('tab.event', {id: event.id, seasonId: vm.event.season.id});
         });
     }
 
@@ -57,7 +57,7 @@
         if (res) {
           vm.event.$delete()
             .then(function () {
-              routeService.go('tab.event', {id: vm.event.id});
+              routeService.go('tab.event', {id: vm.event.id, seasonId: vm.event.season.id});
             });
         }
       });
