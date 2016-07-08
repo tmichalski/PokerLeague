@@ -14,12 +14,14 @@
   <script src="lib/angular-resource/angular-resource.min.js"></script>
   <script src="lib/moment/min/moment.min.js"></script>
   <script src="lib/lodash/dist/lodash.min.js"></script>
+  <script src="lib/ion-slide-box-tabs/js/slidingTabsDirective.js"></script>
 
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
   <link href="css/ionic.app.css" rel="stylesheet">
   -->
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="lib/ion-slide-box-tabs/css/slidingTabs.min.css" rel="stylesheet">
 
   <style type="text/css">
     .pane, .view {
@@ -37,6 +39,23 @@
     .manual-remove-top-padding .scroll {
       padding-top: 0 !important;
     }
+
+    ion-slide {
+      background-color: #f5f5f5;
+    }
+
+    ion-slide:nth-child(2n) {
+      background-color: #f5f5f5;
+    }
+
+    .slider-slide {
+      padding: 10px;
+    }
+
+    .slider-slide .list, .slider-slide .card {
+      margin: 20px 0;
+    }
+
   </style>
 
   <!-- APP -->

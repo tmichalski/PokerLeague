@@ -5,55 +5,66 @@
     <button class="button" ng-click="vm.editEvent()">Edit</button>
   </ion-nav-buttons>
 
-  <ion-content padding="true" class="has-header">
-    <h3>Host</h3>
-    <div class="list card">
-      <ion-item>
-        <h2>{{vm.event.hostMember.name}}</h2>
-        <p>{{vm.event.hostMember.email}}</p>
-      </ion-item>
-    </div>
+  <ion-content padding="false" class="has-header">
 
-    <h3>Members</h3>
-    <div ng-if="vm.members.length > 0" class="list card">
-      <div class="row" style="font-weight: bold">
-        <div class="col">Rank</div>
-        <div class="col" style="text-align: right">Buy-In</div>
-        <div class="col" style="text-align: right">Winnings</div>
-      </div>
+    <ion-slide-box slide-tabs-scrollable="false" show-pager="false" ion-slide-tabs>
 
-      <div>
-        <div ng-repeat="members in vm.members" class="row">
-          <div class="col">{{$index+1}}. {{members.name}}</div>
-          <div class="col" style="text-align: right">{{members.buyins | currency | default:'$0.00'}}</div>
-          <div class="col" style="text-align: right">{{members.results | currency | default:'$0.00'}}</div>
+      <!-- Host -->
+      <ion-slide ion-slide-tab-label="Host">
+        <div class="list card">
+          <ion-item>
+            <h2>{{vm.event.hostMember.name}}</h2>
+            <p>{{vm.event.hostMember.email}}</p>
+          </ion-item>
         </div>
-        <div class="row" style="border-top: 1px solid grey">
-          <div class="col" style="font-weight: bold">Total</div>
-          <div class="col" style="text-align: right; font-weight: bold;">{{vm.memberBuyinsTotal() | currency | default:'$0.00'}}</div>
-          <div class="col" style="text-align: right; font-weight: bold;">{{vm.memberResultsTotal() | currency | default:'$0.00'}}</div>
+      </ion-slide>
+
+      <!-- Members -->
+      <ion-slide ion-slide-tab-label="Members">
+        <div ng-if="vm.members.length > 0" class="list card">
+          <div class="row" style="font-weight: bold">
+            <div class="col">Rank</div>
+            <div class="col" style="text-align: right">Buy-In</div>
+            <div class="col" style="text-align: right">Winnings</div>
+          </div>
+
+          <div>
+            <div ng-repeat="members in vm.members" class="row">
+              <div class="col">{{$index+1}}. {{members.name}}</div>
+              <div class="col" style="text-align: right">{{members.buyins | currency | default:'$0.00'}}</div>
+              <div class="col" style="text-align: right">{{members.results | currency | default:'$0.00'}}</div>
+            </div>
+            <div class="row" style="border-top: 1px solid grey">
+              <div class="col" style="font-weight: bold">Total</div>
+              <div class="col" style="text-align: right; font-weight: bold;">{{vm.memberBuyinsTotal() | currency | default:'$0.00'}}</div>
+              <div class="col" style="text-align: right; font-weight: bold;">{{vm.memberResultsTotal() | currency | default:'$0.00'}}</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <button type="submit" ng-click="vm.addBuyIn()" class="button button-block button-positive button-outline">Add Buy-In</button>
-    <button type="submit" ng-click="vm.addResult()" class="button button-block button-positive button-outline">Add Result</button>
+        <button type="submit" ng-click="vm.addBuyIn()" class="button button-block button-positive button-outline">Add Buy-In</button>
+        <button type="submit" ng-click="vm.addResult()" class="button button-block button-positive button-outline">Add Result</button>
+      </ion-slide>
 
-    <div class="spacer" style="width: 300px; height: 18px;"></div>
+      <!-- Notes -->
+      <ion-slide ion-slide-tab-label="Notes">
+        <h3>Notes</h3>
+        <form class="list" ng-submit="vm.saveNote()">
+          <label class="item item-input">
+            <input ng-model="vm.noteText" type="text" placeholder="Say something...">
+            <button type="submit" class="button button-icon icon ion-android-send"></button>
+          </label>
+        </form>
 
-    <h3>Notes</h3>
-    <form class="list" ng-submit="vm.saveNote()">
-      <label class="item item-input">
-        <input ng-model="vm.noteText" type="text" placeholder="Say something...">
-        <button type="submit" class="button button-icon icon ion-android-send"></button>
-      </label>
-    </form>
+        <div class="card" ng-repeat="activity in vm.activities" on-swipe-left="deleteActivity(activity.id)">
+          <div class="item item-text-wrap">
+            <h2>{{activity.createdDtm | date:'shortTime'}} {{activity.createdByUser.name}}</h2>
+            <p style="white-space:normal;">{{activity.note}}</p>
+          </div>
+        </div>
+      </ion-slide>
 
-    <div class="card" ng-repeat="activity in vm.activities" on-swipe-left="deleteActivity(activity.id)">
-      <div class="item item-text-wrap">
-        <h2>{{activity.createdDtm | date:'shortTime'}} {{activity.createdByUser.name}}</h2>
-        <p style="white-space:normal;">{{activity.note}}</p>
-      </div>
-    </div>
+    </ion-slide-box>
+
   </ion-content>
 </ion-view>
