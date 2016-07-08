@@ -20,6 +20,8 @@
     vm.editEvent = editEvent;
     vm.addBuyIn = addBuyIn;
     vm.addResult = addResult;
+    vm.memberBuyinsTotal = memberBuyinsTotal;
+    vm.memberResultsTotal = memberResultsTotal;
 
     function getEvent() {
       return eventService.getEvent(eventId);
@@ -68,6 +70,22 @@
 
     function addResult() {
       routeService.go('tab.eventAddResult', {id: vm.event.id, seasonId: vm.event.season.id});
+    }
+
+    function memberBuyinsTotal() {
+      var total = 0;
+      _.each(vm.members, function (member) {
+        total += member.buyins;
+      });
+      return total;
+    }
+
+    function memberResultsTotal() {
+      var total = 0;
+      _.each(vm.members, function (member) {
+        total += member.results;
+      });
+      return total;
     }
   }
 

@@ -28,6 +28,11 @@
           <div class="col" style="text-align: right">{{members.buyins | currency | default:'$0.00'}}</div>
           <div class="col" style="text-align: right">{{members.results | currency | default:'$0.00'}}</div>
         </div>
+        <div class="row" style="border-top: 1px solid grey">
+          <div class="col" style="font-weight: bold">Total</div>
+          <div class="col" style="text-align: right; font-weight: bold;">{{vm.memberBuyinsTotal() | currency | default:'$0.00'}}</div>
+          <div class="col" style="text-align: right; font-weight: bold;">{{vm.memberResultsTotal() | currency | default:'$0.00'}}</div>
+        </div>
       </div>
     </div>
 
