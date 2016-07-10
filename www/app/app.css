@@ -1,0 +1,36 @@
+.pane, .view {
+  background-color: #f5f5f5;
+}
+
+.platform-ios .manual-ios-statusbar-padding {
+  padding-top: 20px;
+}
+
+.manual-remove-top-padding {
+  padding-top: 0;
+}
+
+.manual-remove-top-padding .scroll {
+  padding-top: 0 !important;
+}
+
+/* *********************************************
+ * EVENT
+ * ********************************************* */
+#event-view-tabs .card {
+  margin: 6px 0;
+}
+
+#event-view-tabs ion-content {
+  padding: 10px;
+}
+
+#event-notes-message-input-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#event-notes-message-input-box .item-input {
+  padding: 0 10px 5px 16px;
+}

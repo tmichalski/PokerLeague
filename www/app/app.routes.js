@@ -19,7 +19,7 @@
     $urlRouterProvider.otherwise('/league')
 
 
-    // DEBUG ONLY
+    // DEBUG ONLY (do not remove)
     // Output all angularJs Events to console for debugging a page's events.
     // $provide.decorator('$rootScope', function ($delegate) {
     //   var _emit = $delegate.$emit;
