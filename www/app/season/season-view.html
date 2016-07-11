@@ -6,25 +6,37 @@
   </ion-nav-buttons>
 
   <ion-content padding="true" class="has-header">
-    <h3>Ranking</h3>
+    <h4>Ranking</h4>
 
     <div class="card">
       <ion-list>
-        <ion-item ng-repeat="ranking in vm.season.rankings">
-          {{ranking.rank}}. {{ranking.user.name}} {{ranking.winnings | currency:"$":0}}
-          <span class="item-note">-{{user.outFromFirst | currency:"$":0}}</span>
+        <ion-item class="row text-bold">
+          <div class="col">Name</div>
+          <div class="col text-right">Winnings</div>
+          <div class="col text-right">Behind</div>
+        </ion-item>
+        <ion-item class="row" ng-repeat="ranking in vm.season.rankings">
+          <div class="col">{{ranking.rank}}. {{ranking.user.name}}</div>
+          <div class="col text-right">{{ranking.winnings | currency:"$":0}}</div>
+          <div class="col text-right">{{vm.getFirstPlaceDiff(ranking.winnings) | currency:"$":0}}</div>
         </ion-item>
       </ion-list>
     </div>
 
-    <div class="spacer" style="width: 300px; height: 18px;"></div>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
 
-    <h3>Schedule</h3>
+    <h4>Events</h4>
     <div class="card">
       <ion-list>
-        <ion-item ng-repeat="event in vm.season.events" ng-click="vm.viewEvent({id: event.id, seasonId: vm.season.id})">
-          {{event.eventDate | date:'shortDate'}} {{event.hostMember.name}}
-          <span class="item-note">{{event.winnerName}} {{event.winnerScore | currency:"$":0}}</span>
+        <ion-item class="row text-bold">
+          <div class="col">Date</div>
+          <div class="col">Host</div>
+          <div class="col">Winner</div>
+        </ion-item>
+        <ion-item class="row" ng-repeat="event in vm.season.events" ng-click="vm.viewEvent({id: event.id, seasonId: vm.season.id})">
+          <div class="col">{{event.eventDate | date:'shortDate'}}</div>
+          <div class="col">{{event.hostName}}</div>
+          <div class="col">{{event.firstPlaceWinner}} {{event.firstPlaceWinnings | currency:"$":0}}</div>
         </ion-item>
       </ion-list>
     </div>

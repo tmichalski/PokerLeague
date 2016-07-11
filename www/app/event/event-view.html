@@ -21,14 +21,13 @@
     <ion-tab title="Members">
       <ion-content class="has-tabs has-tabs-top">
         <div ng-if="vm.members.length > 0" class="list card">
-          <div class="row" style="font-weight: bold">
+          <ion-list>
+            <ion-item class="row text-bold">
             <div class="col">Rank</div>
             <div class="col text-right">Buy-In</div>
             <div class="col text-right">Winnings</div>
-          </div>
-
-          <div>
-            <div ng-repeat="members in vm.members" class="row">
+            </ion-item>
+            <ion-item ng-repeat="members in vm.members" class="row">
               <div class="col">{{$index+1}}. {{members.name}}</div>
               <div class="col text-right">
                 {{members.buyins | currency | default:'$0.00'}}
@@ -36,8 +35,8 @@
               <div class="col text-right">
                 {{members.results | currency | default:'$0.00'}}
               </div>
-            </div>
-            <div class="row" style="border-top: 1px solid grey">
+            </ion-item>
+            <ion-item class="row text-bold">
               <div class="col" style="font-weight: bold">Total</div>
               <div class="col text-right" style="font-weight: bold;">
                 {{vm.memberBuyinsTotal() | currency | default:'$0.00'}}
@@ -45,9 +44,11 @@
               <div class="col text-right" style="font-weight: bold;">
                 {{vm.memberResultsTotal() | currency | default:'$0.00'}}
               </div>
-            </div>
-          </div>
+            </ion-item>
+          </ion-list>
         </div>
+
+        <div class="spacer" style="width: 300px; height: 30px;"></div>
 
         <button type="submit" ng-click="vm.addBuyIn()" class="button button-block button-positive button-outline">
           Add Buy-In
