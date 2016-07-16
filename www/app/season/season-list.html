@@ -5,7 +5,7 @@
       <ion-list>
         <ion-item ng-repeat="season in vm.seasons" class="item-icon-right" ui-sref="tab.seasonView({id: season.id})">
           {{season.year}} <span class="{{season.isActive ? 'ion-star' : ''}} icon-accessory"></span>
-          <span class="item-note">{{season.firstPlaceLeagueMemberName}} {{season.firstPlaceWinnings | currency:"$":0}}</span>
+          <span class="item-note"><i class="icon ion-trophy" style="font-size:25px"></i>{{season.firstPlaceLeagueMemberName}} {{season.firstPlaceWinnings | currency:"$":0}}</span>
         </ion-item>
       </ion-list>
     </div>
