@@ -3,13 +3,13 @@
 
   angular
     .module('app.event')
-    .controller('EventBuyInCtrl', EventBuyInCtrl);
+    .controller('EventMembersBuyInCtrl', EventMembersBuyInCtrl);
 
-  EventBuyInCtrl.$inject = ['$stateParams', 'Event', 'Member', 'eventService', 'routeService'];
+  EventMembersBuyInCtrl.$inject = ['$stateParams', 'Event', 'Member', 'eventService', 'routeService'];
 
   //////////////
 
-  function EventBuyInCtrl($stateParams, Event, Member, eventService, routeService) {
+  function EventMembersBuyInCtrl($stateParams, Event, Member, eventService, routeService) {
     var vm = this;
     vm.buyIn = {};
     vm.event = getEvent();
@@ -27,7 +27,7 @@
     function save() {
       eventService.saveEventBuyIn(vm.event.id, vm.buyIn.member.id, vm.buyIn.amount)
         .then(function() {
-          routeService.go('tab.event', {id: vm.event.id, seasonId: vm.event.season.id});
+          routeService.go('tab.event.members', {id: vm.event.id, seasonId: vm.event.season.id});
         });
     }
   }

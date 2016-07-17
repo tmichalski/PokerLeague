@@ -3,32 +3,24 @@
 
   angular
     .module('app.event')
-    .controller('EventViewCtrl', EventViewCtrl);
+    .controller('EventNotesCtrl', EventNotesCtrl);
 
-  EventViewCtrl.$inject = ['$stateParams', '$ionicPopup', 'eventService', 'routeService'];
+  EventNotesCtrl.$inject = ['$stateParams', '$ionicPopup', 'eventService', 'routeService'];
 
   //////////////
 
-  function EventViewCtrl($stateParams, $ionicPopup, eventService, routeService) {
+  function EventNotesCtrl($stateParams, $ionicPopup, eventService, routeService) {
     var vm = this;
     var eventId = $stateParams.id;
 
     vm.event = getEvent();
-    vm.members = getEventMembers();
     vm.activities = getEventActivities();
     vm.saveNote = saveNote;
     vm.editEvent = editEvent;
-    vm.addBuyIn = addBuyIn;
-    vm.addResult = addResult;
-    vm.memberBuyinsTotal = memberBuyinsTotal;
-    vm.memberResultsTotal = memberResultsTotal;
+    vm.backToSeasonView = backToSeasonView;
 
     function getEvent() {
       return eventService.getEvent(eventId);
-    }
-
-    function getEventMembers() {
-      return eventService.getEventMembers(eventId)
     }
 
     function getEventActivities() {
@@ -61,32 +53,13 @@
     }
 
     function editEvent() {
-      routeService.go('tab.eventEdit', {id: vm.event.id, seasonId: vm.event.season.id});
+      routeService.go('tab.event.notesEventEdit', {id: vm.event.id, seasonId: vm.event.season.id});
     }
 
-    function addBuyIn() {
-      routeService.go('tab.eventAddBuyIn', {id: vm.event.id, seasonId: vm.event.season.id});
+    function backToSeasonView() {
+      routeService.go('tab.seasonView', {id: vm.event.season.id});
     }
 
-    function addResult() {
-      routeService.go('tab.eventAddResult', {id: vm.event.id, seasonId: vm.event.season.id});
-    }
-
-    function memberBuyinsTotal() {
-      var total = 0;
-      _.each(vm.members, function (member) {
-        total += member.buyins;
-      });
-      return total;
-    }
-
-    function memberResultsTotal() {
-      var total = 0;
-      _.each(vm.members, function (member) {
-        total += member.results;
-      });
-      return total;
-    }
   }
 
 })();

@@ -1,0 +1,18 @@
+<ion-view>
+
+  <ion-tabs id="event-view-tabs" class="tabs-striped tabs-top tabs-background-positive tabs-color-light {{hideTopTabs}}">
+
+    <ion-tab title="Members" ng-click="tabs.membersTab()">
+      <ion-nav-view name="eventMembersTab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Notes" ng-click="tabs.notesTab()">
+      <ion-nav-view name="eventNotesTab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Host" ng-click="tabs.hostTab()">
+      <ion-nav-view name="eventHostTab"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

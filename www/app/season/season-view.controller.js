@@ -34,7 +34,7 @@
     }
 
     function viewEvent(params) {
-      routeService.go('tab.event', params);
+      routeService.go('tab.event.members', params);
     }
 
     function seasonEdit(params) {

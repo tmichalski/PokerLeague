@@ -16,7 +16,7 @@
         abstract: true
       });
 
-    $urlRouterProvider.otherwise('/league')
+    $urlRouterProvider.otherwise('/league');
 
 
     // DEBUG ONLY (do not remove)

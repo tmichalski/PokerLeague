@@ -3,13 +3,13 @@
 
   angular
     .module('app.event')
-    .controller('EventResultCtrl', EventResultCtrl);
+    .controller('EventMembersResultCtrl', EventMembersResultCtrl);
 
-  EventResultCtrl.$inject = ['$stateParams', 'Event', 'Member', 'eventService', 'routeService'];
+  EventMembersResultCtrl.$inject = ['$stateParams', 'Event', 'Member', 'eventService', 'routeService'];
 
   //////////////
 
-  function EventResultCtrl($stateParams, Event, Member, eventService, routeService) {
+  function EventMembersResultCtrl($stateParams, Event, Member, eventService, routeService) {
     var vm = this;
     vm.result = {};
     vm.event = getEvent();
@@ -27,7 +27,7 @@
     function save() {
       eventService.saveEventResult(vm.event.id, vm.result.member.id, vm.result.amount)
         .then(function() {
-          routeService.go('tab.event', {id: vm.event.id, seasonId: vm.event.season.id});
+          routeService.go('tab.event.members', {id: vm.event.id, seasonId: vm.event.season.id});
         });
     }
   }

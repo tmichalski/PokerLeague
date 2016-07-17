@@ -1,0 +1,22 @@
+<ion-view hide-bottom-tabs>
+  <ion-nav-title>{{vm.event.eventDate | date:'shortDate'}} {{vm.event.name}}</ion-nav-title>
+
+  <ion-nav-buttons side="primary">
+    <button class="button back-button buttons button-icon icon ion-ios-arrow-back header-item" ng-click="vm.backToSeasonView()" style="transition-duration: 0ms;">
+      Back
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="vm.editEvent()">Edit</button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-tabs has-tabs-top">
+    <div class="list card">
+      <ion-item>
+        <h2>{{vm.event.hostMember.name}}</h2>
+        <p>{{vm.event.hostMember.email}}</p>
+      </ion-item>
+    </div>
+  </ion-content>
+</ion-view>

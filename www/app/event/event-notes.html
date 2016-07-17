@@ -1,0 +1,30 @@
+<ion-view hide-bottom-tabs>
+  <ion-nav-title>{{vm.event.eventDate | date:'shortDate'}} {{vm.event.name}}</ion-nav-title>
+
+  <ion-nav-buttons side="primary">
+    <button class="button back-button buttons button-icon icon ion-ios-arrow-back header-item" ng-click="vm.backToSeasonView()" style="transition-duration: 0ms;">
+      Back
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="vm.editEvent()">Edit</button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-tabs has-tabs-top" delegate-handle="notesIonContent">
+    <div class="card" ng-repeat="activity in vm.activities" on-swipe-left="deleteActivity(activity.id)" scroll-bottom="notesIonContent">
+      <div class="item item-text-wrap">
+        <h2>{{activity.createdDtm | date:'shortTime'}} {{activity.createdByUser.name}}</h2>
+        <p style="white-space:normal;">{{activity.note}}</p>
+      </div>
+    </div>
+  </ion-content>
+  <div id="event-notes-message-input-box">
+    <form class="list" ng-submit="vm.saveNote()">
+      <label class="item item-input">
+        <input ng-model="vm.noteText" type="text" placeholder="Say something...">
+        <button type="submit" class="button button-icon icon ion-android-send"></button>
+      </label>
+    </form>
+  </div>
+</ion-view>

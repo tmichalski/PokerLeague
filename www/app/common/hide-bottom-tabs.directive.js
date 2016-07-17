@@ -16,10 +16,7 @@
     };
 
     function directive($scope) {
-      $rootScope.hideBottomTabs = 'tabs-item-hide';
-      $scope.$on('$ionicView.beforeLeave', function () {
-        $rootScope.hideBottomTabs = '';
-      });
+      $rootScope.$broadcast('hideBottomTabs');
     }
 
   }
