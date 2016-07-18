@@ -10,7 +10,7 @@
   function AppConfig() {
     return {
       facebookAppId: '1602299076749398',
-      serverHostName: 'http://pokerleague.lssinc.com:8080'
+      serverHostName: 'http://pokerleague.lssinc.com'
     }
   }
 
