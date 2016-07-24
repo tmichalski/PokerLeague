@@ -42,7 +42,7 @@
     function saveEvent() {
       eventService.saveEvent(vm.event.id, vm.event.season.id, vm.event.name, vm.event.hostMember.id, vm.event.eventDate)
         .then(function(event) {
-          routeService.go('tab.event.home', {id: event.id, seasonId: vm.event.season.id});
+          routeService.go('tab.event.members', {id: event.id, seasonId: vm.event.season.id});
         });
     }
 
@@ -57,7 +57,7 @@
         if (res) {
           vm.event.$delete()
             .then(function () {
-              routeService.go('tab.event.home', {id: vm.event.id, seasonId: vm.event.season.id});
+              routeService.go('tab.seasonView', {id: vm.event.season.id});
             });
         }
       });

@@ -83,6 +83,12 @@ Emulate Android
   * Be sure the PokerLeagueAPI app is running and listening on whatever hostname:port is configured in */www/app/app.config.js*
 
 
-
+ # Marketplace Deploys
+ ## Google Play
+ Refer to the following article to build an APK and sign it for deploy to the Google Play store. 
+ http://ionicframework.com/docs/guide/publishing.html
+ 
+ NOTE: Tim Michalski has the private key for signing the official Poker League app to Google Play. 
+ 
 
 
